@@ -66,3 +66,68 @@ CSS 전환과 키프레임을 먼저 쓰고, 섹션 진입 감지는 Intersectio
 5. Pages Free는 빌드 명령 `npm run build`, 출력 폴더 `out`, 운영 브랜치 `main`을 사용하고 `dev`에서 미리보기를 검수한다. 운영 전환 전에 기존 WordPress와 DNS 레코드를 백업한다. 가비아 도메인 등록은 유지하고 실제 DNS 관리 위치에서 웹 연결을 전환한다. 전환 후 루트·www의 HTTPS와 이동 규칙, 메일 레코드를 확인한다.
 
 [Next.js 정적 출력](https://nextjs.org/docs/app/guides/static-exports) · [Cloudflare Pages 정적 Next.js 배포](https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/)
+
+## 6. 단계별 커밋 메시지 초안
+
+5절의 순서와 아래 번호가 대응한다. 각 코드 블록은 제목, 본문, Git 트레일러를 포함한 메시지 초안이다. 커밋 시 `Tested:`는 실제 수행한 확인으로 바꾸고, 남은 검증은 `Not-tested:`에 남긴다.
+
+### 1. 앱 초기화와 정적 경로
+
+```text
+Enable reproducible static builds for both site languages
+
+Set up Next.js, TypeScript and the package lockfile so local and
+preview builds produce separate Korean and English entry pages.
+
+Constraint: Cloudflare Pages serves the static out directory
+Tested: npm ci and npm run build; KO and EN index files generated
+```
+
+### 2. v1.0 화면과 반응형 스타일
+
+```text
+Make the approved company story readable across screen sizes
+
+Build the v1.0 sections in order with shared CSS tokens, scoped
+styles and bilingual copy. Optimize the assets used by each section.
+
+Tested: KO and EN layouts compared against Figma at 390px and 1440px
+```
+
+### 3. 메뉴와 모션
+
+```text
+Keep navigation clear while bringing the technical diagrams to life
+
+Use one mobile header for both menu states and offset section links
+below the fixed header. Add diagram motion with a reduced-motion state.
+
+Tested: Menu open and close, section jumps, hover states and reduced motion
+```
+
+### 4. 출시 전 검수와 수정
+
+```text
+Resolve issues found in the exported site before release
+
+Record the issues reproduced on the static build and what changed
+to make the language, navigation and responsive flows work.
+
+Tested: Lint, typecheck, static build and the affected browser flows
+```
+
+수정할 코드가 없다면 검수 결과를 PR이나 실제로 갱신한 문서에 남긴다. 이 경우 커밋 제목은 `Record verification of both static site variants`를 사용한다.
+
+### 5. 운영 배포와 도메인 전환
+
+```text
+Make the reviewed bilingual site ready for production on Pages
+
+Record the production build settings, domain routing and rollback
+steps so the cutover can be verified and repeated.
+
+Constraint: Domain registration stays with Gabia
+Tested: Preview routes, production HTTPS and root/www routing
+```
+
+DNS 전환 확인은 실제 전환 후에만 `Tested:`에 기록한다. 설정 변경이 Git 밖에서 이루어졌다면 운영 기록에 남긴다.
