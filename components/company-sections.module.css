@@ -167,7 +167,7 @@
 .section[aria-labelledby="method-title"] { background: #fff; }
 .steps li { padding: 0 1.6rem 1.25rem; border-left: 1px solid #d4e2e3; transition: translate 220ms ease-out; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .steps li:hover { translate: 0 -3px; }
+  .steps li:hover { translate: 0 -8px; }
 }
 .steps li:first-child { padding-left: 0; border: 0; }
 .stepNumber { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; }
