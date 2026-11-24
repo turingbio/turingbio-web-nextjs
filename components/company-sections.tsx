@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import content from '@/i18n-ko-en.json';
+import ProjectHelix from './project-helix';
 import styles from './company-sections.module.css';
 
 type Locale = 'ko' | 'en';
@@ -9,7 +11,7 @@ const links = ['crm', 'company', 'project', 'capabilities'];
 function getCopy(section: string, locale: Locale) {
   return content.rows
     .filter(row => row.section === section)
-    .map(row => row[locale].replace(/\s*\n\s*/g, ' '));
+    .map(row => locale === 'ko' ? row.ko : row.en.replace(/\s*\n\s*/g, ' '));
 }
 
 function SectionHeading({ id, eyebrow, title, body }: {
@@ -21,7 +23,7 @@ function SectionHeading({ id, eyebrow, title, body }: {
   return (
     <div className={styles.sectionHeading}>
       <div>
-        <p className={styles.eyebrow}>{eyebrow}</p>
+        <p className={styles.eyebrow} hidden={!eyebrow}>{eyebrow}</p>
         <h2 id={id} tabIndex={-1}>{title}</h2>
       </div>
       {body && <p>{body}</p>}
@@ -31,19 +33,21 @@ function SectionHeading({ id, eyebrow, title, body }: {
 
 function Company({ locale }: { locale: Locale }) {
   const [title, body, ...disciplines] = getCopy('Company', locale);
+  const name = "'튜링바이오'";
   return (
     <section id="company" className={styles.company} aria-labelledby="company-title">
       <div className={`container ${styles.companyInner}`}>
         <div className={styles.companyCopy}>
-          <SectionHeading id="company-title" eyebrow="ABOUT TURINGBIO" title={title} />
-          <p>{body}</p>
+          <SectionHeading id="company-title" eyebrow="" title={title} />
+          <p>{locale === 'ko' && body.startsWith(name) ? <><strong>{name}</strong>{body.slice(name.length)}</> : body}</p>
           <ul className={styles.disciplines}>
             {disciplines.map(label => <li key={label}>{label}</li>)}
           </ul>
         </div>
         <div className={styles.companyArt} aria-hidden="true">
-          <Image src="/images/company-glass.webp" alt="" width={1400} height={933} sizes="(max-width: 760px) 100vw, 46vw" />
-          <Image src="/images/rag-neural.webp" alt="" width={768} height={512} sizes="(max-width: 760px) 100vw, 46vw" />
+          {['default', 'evidence', 'privacy'].map(state => (
+            <Image key={state} src={`/images/company-visual-${state}.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 46vw" />
+          ))}
         </div>
       </div>
     </section>
@@ -64,10 +68,10 @@ function Origin({ locale }: { locale: Locale }) {
         <div className={styles.products}>
           {products.map(({ title, subtitle, body, tags }, index) => (
             <article className={styles.product} key={title}>
-              <span className={styles.cardIndex}>0{index + 1} / MEDICAL AI</span>
-              <h3>{title}</h3>
-              {subtitle && <p className={styles.productSubtitle}>{subtitle}</p>}
-              <p>{body}</p>
+              <span className={styles.cardIndex}>{['DIGITAL THERAPEUTICS', 'COUNSELING PLATFORM', 'CONVERSATIONAL AI'][index]}</span>
+              <h3>{index === 0 ? 'DTx' : title}</h3>
+              {(index === 0 || subtitle) && <p className={styles.productSubtitle}>{index === 0 ? title : subtitle}</p>}
+              <p className={styles.productBody}>{body}</p>
               <ul className={styles.tags}>{tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
             </article>
           ))}
@@ -121,32 +125,34 @@ function Method({ locale }: { locale: Locale }) {
         <ol className={styles.steps}>
           {[2, 4, 6, 8].map((index, step) => (
             <li key={index}>
-              <span className={styles.stepNumber}>0{step + 1}</span>
+              <div className={styles.stepNumber}>0{step + 1}</div>
+              <span className={styles.stepLabel} lang="en">{['DISCOVER', 'DESIGN', 'BUILD', 'OPERATE'][step]}</span>
               <h3>{method[index]}</h3>
               <p>{method[index + 1]}</p>
             </li>
           ))}
         </ol>
-        <ul className={styles.areas}>
-          {method.slice(10).map(label => <li key={label}>{label}</li>)}
-        </ul>
+        <div className={styles.areaStrip}>
+          <span className={styles.stepLabel} lang="en">BUSINESS AREAS</span>
+          <ul className={styles.areas}>
+            {method.slice(10).map(label => <li key={label}>{label}<span aria-hidden="true">→</span></li>)}
+          </ul>
+        </div>
       </div>
     </section>
   );
 }
 
 function Project({ locale }: { locale: Locale }) {
-  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의 CRM·AX 프로젝트.' : 'CRM and AX in global K-beauty.';
+  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의\nCRM·AX를 이끕니다.' : 'Leading CRM and AX for a global K-beauty brand.';
   const body = locale === 'ko'
-    ? 'K-뷰티 브랜드의 고객 데이터를 연결하고 고객 경험 개선을 추진하는 프로젝트입니다.'
-    : 'An initiative to connect customer data and improve the customer experience for a K-beauty brand.';
+    ? 'K-뷰티 대표 브랜드의 고객 데이터 통합과 고객 경험 전환 프로젝트에서\nPMO를 맡아 운영의 전 과정을 이끕니다.'
+    : 'We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation.';
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <div className="container">
         <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
-        <div className={styles.projectSignal} aria-hidden="true">
-          <span /><span /><span /><span /><span />
-        </div>
+        <ProjectHelix />
       </div>
     </section>
   );
@@ -154,7 +160,7 @@ function Project({ locale }: { locale: Locale }) {
 
 function Capabilities({ locale }: { locale: Locale }) {
   const capabilities = getCopy('Capabilities', locale);
-  const previews = ['data', 'prediction', 'operations'];
+  const previews = ['company-visual-evidence', 'capability-visual-prediction', 'company-visual-privacy'];
   return (
     <section id="capabilities" className={`${styles.section} ${styles.capabilities}`} aria-labelledby="capabilities-title">
       <div className="container">
@@ -165,7 +171,7 @@ function Capabilities({ locale }: { locale: Locale }) {
               <span className={styles.rowIndex}>0{index + 1}</span>
               <h3>{capabilities[index * 2 + 1]}</h3>
               <p>{capabilities[index * 2 + 2]}</p>
-              <Image alt="" src={`/images/company-${image}.webp`} width={480} height={480} className={styles.preview} />
+              <Image alt="" src={`/images/${image}.webp`} width={230} height={172} className={styles.preview} />
             </li>
           ))}
         </ol>
@@ -177,13 +183,16 @@ function Capabilities({ locale }: { locale: Locale }) {
 export function SiteFooter({ locale }: { locale: Locale }) {
   const footer = getCopy('Footer', locale);
   const labels = getCopy('Header', locale);
+  const hoursStart = footer[8].lastIndexOf(' (');
+  const phone = footer[8].slice(0, hoursStart);
+  const hours = footer[8].slice(hoursStart);
   return (
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.footerGrid}>
           <div>
             <a href={`/${locale}/`} aria-label="TuringBio">
-              <Image src="/images/turing-logo.png" alt="TuringBio" width={680} height={140} />
+              <Image src="/images/turingbio-logo.webp" alt="TuringBio" width={676} height={132} />
             </a>
             <p className={styles.eyebrow}>AI TRANSFORMATION PARTNER</p>
           </div>
@@ -198,12 +207,19 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               <div><dt>{footer[2]}</dt><dd>{footer[3]}</dd></div>
               <div><dt>{footer[4]}</dt><dd>344-87-01744</dd></div>
               <div><dt>{footer[5]}</dt><dd>{footer[6]}</dd></div>
-              <div><dt>{footer[7]}</dt><dd><a href="tel:+82316077560">{footer[8]}</a> <span>{locale === 'ko' ? '(평일 10:00–17:00)' : '(Weekdays 10:00–17:00 KST)'}</span></dd></div>
+              <div><dt>{footer[7]}</dt><dd><a href="tel:+82316077560">{phone}</a>{hours}</dd></div>
               <div><dt>{footer[9]}</dt><dd><a href="mailto:info@turingbio.com">info@turingbio.com</a></dd></div>
             </dl>
           </div>
         </div>
-        <p className={styles.copyright}>© 2026 TuringBio, Inc. All rights reserved.</p>
+        <div className={styles.footerBase}>
+          <p>© 2026 TuringBio, Inc. All rights reserved.</p>
+          <nav aria-label={locale === 'ko' ? '언어 선택' : 'Language selection'}>
+            <Link href="/ko/" hrefLang="ko" lang="ko" aria-current={locale === 'ko' ? 'page' : undefined}>한국어</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/en/" hrefLang="en" lang="en" aria-current={locale === 'en' ? 'page' : undefined}>English</Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

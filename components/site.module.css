@@ -12,6 +12,40 @@
 .controls a:not([aria-current]) { color: var(--muted); }
 .controls a[aria-current] { font-weight: 750; }
 .toggle { display: none; }
+@media (min-width: 1024px) {
+  .header { background-color: rgb(255 255 255 / 40%); backdrop-filter: blur(9px); }
+  .header[data-scrolled="false"] {
+    background-image: linear-gradient(100deg, #eaf8f9, #e5f7f7 8%, #f4fbfb 43%, #fefefe 51%, #f8f3f8 69%, #f8f2f7 84%, #fefdfd);
+  }
+  .headerInner { position: relative; justify-content: flex-start; }
+  .headerInner img { width: 190px; height: 37.05px; }
+  .headerInner nav {
+    position: absolute;
+    right: 12.8%;
+    width: min(45%, 488px);
+    height: 44px;
+    gap: 0;
+  }
+  .headerInner nav a {
+    display: grid;
+    place-items: center;
+    flex: 1;
+    height: 100%;
+    white-space: nowrap;
+    font: 400 14px "Noto Sans KR", sans-serif;
+    color: #152031;
+  }
+  .controls {
+    position: absolute;
+    right: clamp(8px, 2.43vw, 35px);
+    display: grid;
+    grid-template-columns: repeat(2, 21px);
+    gap: 31px;
+    font: 400 14px "Noto Sans KR", sans-serif;
+  }
+  .controls a:not([aria-current]) { color: #7b8490; }
+  .controls a[aria-current] { color: #152031; font-weight: 700; }
+}
 .hero {
   position: relative; isolation: isolate; overflow: clip; min-height: clamp(650px, 58vw, 824px);
   display: grid; align-content: center; justify-items: center; padding: 70px 24px 140px; text-align: center;
@@ -24,15 +58,20 @@
 .hero h1 span { color: #4b555a; }
 .heroCopy > p { max-width: 540px; margin: 24px auto 0; color: #4d6269; font-size: clamp(.94rem, 1.2vw, 1.13rem); }
 .signatures { position: absolute; bottom: 8%; padding: 0 24px; list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 58px; font-size: .69rem; letter-spacing: .18em; color: #49727b; }
-.signal { position: absolute; display: flex; gap: 23px; bottom: 20%; }
-.signal i { display: block; width: 8px; height: 8px; border-radius: 50%; background: #159aa5; box-shadow: 0 0 30px 12px #68c6c646; }
-.signal i:nth-child(2) { background: #c79fc9; }
-.signal i:nth-child(3) { background: #e1a182; }
 .credentials { border-block: 1px solid #e5eaee; }
 .credentials > div { display: grid; grid-template-columns: repeat(5, 1fr); padding-block: 36px; gap: 22px; }
 .credentials article { border-inline-start: 1px solid #d8e4e8; padding-inline-start: 16px; }
 .credentials h3 { font-size: 1rem; }
 .credentials p { color: #546575; font-size: .8rem; margin-top: 6px; }
+.credentials .credentialLabel { color: #2a8f9c; font: 500 11px "Figma Inter", sans-serif; letter-spacing: 2px; margin: 0; }
+@media (min-width: 1024px) {
+  .credentials > div { padding-block: 44px; gap: 0; }
+  .credentials article { display: grid; align-content: start; gap: 8px; padding-inline: clamp(12px, 1.94vw, 28px) 12px; border-color: #e5eaee; }
+  .credentials article:first-child { border: 0; padding-inline-start: 0; }
+  .credentials h3 { color: #152436; font: 500 clamp(16px, 1.39vw, 20px)/1.4 "Noto Sans KR", sans-serif; letter-spacing: -.4px; text-wrap: wrap; }
+  .credentials p { color: #73808d; font-size: 14px; line-height: 1.5; margin: 0; }
+  .credentials .credentialLabel { line-height: normal; }
+}
 .crm, .rag, .trust { padding-block: clamp(64px, 8vw, 115px); }
 .crm { color: #f7fafb; background: linear-gradient(113deg, #131820, #283c57); }
 .rag { background: #f8f7f5; }
@@ -69,6 +108,8 @@
 .stages h3 { color: #087b86; }
 .trustGrid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin-top: 0; }
 .trustGrid article { padding: 23px; background: #ffffff0a; border: 1px solid #ffffff16; border-radius: 10px; }
+.trustMeta { display: flex; align-items: center; gap: 10px; color: #7f9bb0; font: 500 11px "Figma Inter", sans-serif; letter-spacing: 1.8px; }
+.trustMeta span:first-child { color: #54cee3; font-size: 13px; font-weight: 600; letter-spacing: normal; }
 @media (max-width: 767px) {
   .headerInner img { width: 118px; }
   .headerInner nav { position: absolute; inset: 100% 0 auto; align-items: stretch; flex-direction: column; gap: 0; padding: 44px 24px 28px; background: #fff; height: calc(100dvh - var(--header-height)); overflow: auto; }
@@ -91,16 +132,261 @@
   .three { gap: 18px; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .signal i { animation: pulse 3s ease-in-out infinite alternate; }
-  .signal i:nth-child(2) { animation-delay: -.8s; }
-  .signal i:nth-child(3) { animation-delay: -1.6s; }
   .connector::after { animation: traverse 2.7s linear infinite; }
   @media (max-width: 767px) { .connector::after { animation-name: traverseVertical; } }
   @supports (animation-timeline: view()) {
     .stages article { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
   }
 }
-@keyframes pulse { to { transform: translateY(-12px); opacity: .45; } }
 @keyframes traverse { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 @keyframes rise { from { transform: translateY(12px); } to { transform: translateY(0); } }
 @keyframes traverseVertical { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+
+.heroEyebrow, .heroSignals, .diagramSignals, .ragPanelLabel, .ragPanelSequence { display: none; }
+.hero h1 strong { font-weight: inherit; }
+
+@media (min-width: 1024px) {
+  :global(html[lang="ko"]) .hero {
+    height: 824px;
+    min-height: 0;
+    display: block;
+    align-content: normal;
+    padding: 0;
+    background: radial-gradient(ellipse at 21% -7%, #dfefed 0, transparent 36%),
+      radial-gradient(ellipse at 68% -10%, #e9dceb 0, transparent 38%), #fdfcfc;
+  }
+  :global(html[lang="ko"]) .heroLines { inset: 0 -1.42%; background-size: 100% 100%; opacity: 1; }
+  :global(html[lang="ko"]) .heroSignals, .diagramSignals {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  :global(html[lang="ko"]) .heroSignals { display: block; z-index: -1; }
+  :global(html[lang="ko"]) .heroCopy { max-width: none; padding-top: 205px; }
+  :global(html[lang="ko"]) .heroCopy > .heroEyebrow {
+    display: block;
+    margin: 0 auto 38px;
+    color: #087c96;
+    font-family: "Figma Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: -.52px;
+  }
+  :global(html[lang="ko"]) .hero h1 {
+    font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+    font-size: 68px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -2.72px;
+    color: #8a8b92;
+  }
+  :global(html[lang="ko"]) .hero h1 strong { color: #151820; }
+  :global(html[lang="ko"]) .heroCopy > p:not(.heroEyebrow) {
+    max-width: 780px;
+    margin-top: 37px;
+    color: #536274;
+    font-size: 20px;
+    letter-spacing: -.88px;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .signatures {
+    inset: 700px 0 auto;
+    margin: 0;
+    gap: 16px 70px;
+    letter-spacing: 2.5px;
+  }
+  :global(html[lang="ko"]) .crm { padding: 136px 0 75px; min-height: 1270px; }
+  :global(html[lang="ko"]) .crm .sectionHeading {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 29.73%);
+    align-items: start;
+    min-height: 264px;
+    margin: 0;
+  }
+  :global(html[lang="ko"]) .crm .kicker {
+    color: #54cee3;
+    font-size: 13px;
+    font-family: "Figma Inter", sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -.52px;
+    white-space: pre-wrap;
+    margin-bottom: 25px;
+  }
+  :global(html[lang="ko"]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 1.4; letter-spacing: -2.36px; color: #f5f9fc; }
+  :global(html[lang="ko"]) .crm .sectionHeading > p { padding-top: 66px; color: #afbfce; font-size: 20px; line-height: 1.4; }
+  :global(html[lang="ko"]) :is(.crm, .rag) .sectionHeading h2,
+  :global(html[lang="ko"]) :is(.crm, .rag) .sectionHeading > p { white-space: pre-line; }
+  :global(html[lang="ko"]) .diagram {
+    position: relative;
+    display: block;
+    padding: 0;
+    min-height: 0;
+    height: 535px;
+  }
+  :global(html[lang="ko"]) .diagramSignals {
+    display: block;
+    inset: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+  }
+  :global(html[lang="ko"]) .connector { display: none; }
+  :global(html[lang="ko"]) .diagram :is(.inputs, .hub, .outputs) { position: absolute; }
+  :global(html[lang="ko"]) .inputs { left: 2.515%; top: 102px; width: 20.122%; gap: 29px; }
+  :global(html[lang="ko"]) .outputs { left: 74.238%; top: 123px; width: 22.942%; gap: 24px; }
+  :global(html[lang="ko"]) .endpoints article {
+    height: 91px;
+    padding: 12px 17px;
+    box-shadow: 0 5px 18px rgb(41 56 77 / 5%);
+  }
+  :global(html[lang="ko"]) .endpoints h3 { font-size: 20px; font-weight: 500; letter-spacing: -.8px; }
+  :global(html[lang="ko"]) .hub {
+    left: 38.338%;
+    top: 110px;
+    width: 27.439%;
+    height: 314px;
+    padding: 21px 23px;
+    grid-template-rows: 53px repeat(3, 65px);
+    gap: 0;
+    border: 1px solid #b9dce5;
+    border-radius: 14px;
+    background: rgb(38 120 129 / 20%);
+  }
+  :global(html[lang="ko"]) .hub > h3 { border-bottom: 1px solid #cbdce5; font-size: 25px; font-weight: 500; color: #112d43; }
+  :global(html[lang="ko"]) .hub article { transform: translateY(19px); }
+  :global(html[lang="ko"]) .hub article h3 { font-size: 16px; font-weight: 500; color: #28536a; }
+  :global(html[lang="ko"]) .diagram article p { font-size: 15px; line-height: 1.4; letter-spacing: -.6px; }
+  :global(html[lang="ko"]) .hub article p { margin-top: 3px; color: #697f8e; }
+  :global(html[lang="ko"]) .endpoints article p { margin-top: 6px; color: #607080; }
+  :global(html[lang="ko"]) .crm .three { margin-top: 54px; }
+  :global(html[lang="ko"]) .crm .three article { border-color: #3d5369; padding-top: 27px; }
+  :global(html[lang="ko"]) .crm .three h3 {
+    color: #f4f8fc;
+    font: 500 27px/1.4 "Noto Sans KR", sans-serif;
+    letter-spacing: -1.08px;
+  }
+  :global(html[lang="ko"]) .crm .three p {
+    color: #afbfce;
+    font: 400 17px/1.4 "Noto Sans KR", sans-serif;
+    letter-spacing: -.68px;
+    white-space: pre-line;
+    margin-top: 18.2px;
+  }
+  :global(html[lang="ko"]) .rag { padding-block: 110px; }
+  :global(html[lang="ko"]) .rag .sectionHeading {
+    grid-template-columns: minmax(0, 49.54%) minmax(0, 1fr);
+    column-gap: 7.85%;
+    row-gap: 48px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+  :global(html[lang="ko"]) .rag .sectionHeading > div { display: contents; }
+  :global(html[lang="ko"]) .rag .kicker {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: #147b89;
+    font: 400 12px/1.55 "Noto Sans KR", sans-serif;
+    letter-spacing: normal;
+    white-space: pre-wrap;
+  }
+  :global(html[lang="ko"]) .trust .kicker {
+    color: #54cee3;
+    font: 500 12px "Noto Sans KR", sans-serif;
+    letter-spacing: 1.2px;
+    margin-bottom: 22px;
+  }
+  :global(html[lang="ko"]) .trust {
+    padding-block: 120px;
+    background: linear-gradient(137.284deg, #0d1620, #1c3149 74.627%);
+  }
+  :global(html[lang="ko"]) .trust .sectionHeading {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42.68%);
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  :global(html[lang="ko"]) .trust h2 {
+    color: #f5f9fc;
+    font: 500 44px/1.45 "Noto Sans KR", sans-serif;
+    letter-spacing: -1px;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .trust .sectionHeading > p {
+    max-width: none;
+    color: #afbfce;
+    font: 400 19px/1.6 "Noto Sans KR", sans-serif;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .trustGrid { gap: 20px; }
+  :global(html[lang="ko"]) .trustGrid article {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
+    min-height: 190px;
+    padding: 32px clamp(16px, 1.94vw, 28px) 25px;
+    border: 1px solid #2e4a63;
+    border-radius: 18px;
+    background: rgb(255 255 255 / 4%);
+  }
+  :global(html[lang="ko"]) .trustGrid h3 { color: #f5f9fc; font: 500 23px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
+  :global(html[lang="ko"]) .trustGrid p {
+    margin: 0;
+    color: #afbfce;
+    font: 400 16px/1.65 "Noto Sans KR", sans-serif;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 1.4; color: #263744; }
+  :global(html[lang="ko"]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 1.55; }
+  :global(html[lang="ko"]) .ragPanel { grid-template-columns: 38.11% minmax(0, 1fr); }
+  :global(html[lang="ko"]) .ragPanel > div:first-child { padding: 50px 24px 28px 48px; align-self: start; }
+  :global(html[lang="ko"]) .ragPanelLabel { display: block; font: 400 12px/1.55 "Noto Sans KR", sans-serif; color: #74d7db; margin-bottom: 26px; }
+  :global(html[lang="ko"]) .ragPanel h3 {
+    color: #f4fafc;
+    font: 500 34px/1.55 "Noto Sans KR", sans-serif;
+    letter-spacing: normal;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .ragPanel ul {
+    margin-top: 26px;
+    color: #b4ced6;
+    font: 400 20px/1.55 "Noto Sans KR", sans-serif;
+  }
+  :global(html[lang="ko"]) .ragPanelSequence {
+    display: block;
+    margin-top: 26px;
+    color: #74d7db;
+    font: 400 15px/1.55 "Noto Sans KR", sans-serif;
+    white-space: pre-wrap;
+  }
+  :global(html[lang="ko"]) .stages { gap: clamp(24px, 3.89vw, 56px); }
+  :global(html[lang="ko"]) .stages article { border: 0; padding: 0; }
+  :global(html[lang="ko"]) .stages h3 {
+    color: #147b89;
+    font: 400 13px/1.55 "Noto Sans KR", sans-serif;
+    white-space: pre-wrap;
+  }
+  :global(html[lang="ko"]) .stages p {
+    margin-top: 16px;
+    color: #657481;
+    font: 400 17px/1.55 "Noto Sans KR", sans-serif;
+    white-space: pre-line;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroSignals g, .diagramSignals g { display: none; }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  :global(html[lang="ko"]) .ragPanel[data-entered] { animation: ragEnter .8s .252s ease-out both; --enter-y: 24px; }
+  :global(html[lang="ko"]) .ragPanel[data-entered] .ragArt img { animation: ragArtEnter 1.6s .45s ease-out both; }
+  :global(html[lang="ko"]) .ragPanel[data-entered] h3 { animation: ragEnter .7s .678s ease-out both; --enter-y: 12px; }
+  :global(html[lang="ko"]) .stages article { animation: none; }
+  :global(html[lang="ko"]) .stages[data-entered] article { animation: ragEnter .65s calc(1.152s + var(--stage-delay, 0s)) ease-out both; --enter-y: 16px; }
+  :global(html[lang="ko"]) .stages article:nth-child(2) { --stage-delay: .18s; }
+  :global(html[lang="ko"]) .stages article:nth-child(3) { --stage-delay: .36s; }
+}
+
+@keyframes ragEnter { from { opacity: 0; transform: translateY(var(--enter-y)); } }
+@keyframes ragArtEnter { from { opacity: 0; transform: scale(1.04); } }
