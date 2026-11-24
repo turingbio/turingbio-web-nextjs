@@ -10,6 +10,7 @@ type Locale = 'ko' | 'en';
 
 const clean = (value: string) => value.replace(/\s*\n\s*/g, ' ').trim();
 const credentialLabels = ['GROUP', 'VENTURE', 'AI PATENT', 'CERTIFICATION', 'GLOBAL R&D'];
+const trustLabels = ['MINIMIZE', 'ACCESS CONTROL', 'PSEUDONYMIZE', 'GROUNDED AI'];
 
 function Pairs({ entries, labels }: { entries: string[]; labels?: string[] }) {
   return entries.filter((_, index) => index % 2 === 0).map((title, index) => (
@@ -38,7 +39,7 @@ export default function Site({ locale }: { locale: Locale }) {
   const hero = read('Hero', true);
   const crm = read('CRM', true);
   const rag = read('RAG', true);
-  const trust = read('Trust');
+  const trust = read('Trust', true);
 
   return (
     <>
@@ -82,7 +83,7 @@ export default function Site({ locale }: { locale: Locale }) {
           <div className="container">
             <SectionHeading id="rag" label={ko ? 'GENERATIVE AI  /  RAG' : 'GENERATIVE AI · RAG'} title={rag[0]} description={rag[1]} />
             <Entrance className={styles.ragPanel}>
-              <div>{ko && <p className={styles.ragPanelLabel}>KNOWLEDGE ENGINE</p>}<h3>{rag[2]}</h3><ul>{content.rows.filter(row => row.section === 'RAG')[3][locale].split('\n').map(item => <li key={item}>{item}</li>)}</ul>{ko && <p className={styles.ragPanelSequence} aria-hidden="true">01 → 02 → 03</p>}</div>
+              <div>{ko && <p className={styles.ragPanelLabel}>KNOWLEDGE ENGINE</p>}<h3>{rag[2]}</h3><ul>{content.rows.filter(row => row.section === 'RAG')[3][locale].split('\n').map(item => <li key={item}>{item}</li>)}</ul>{ko && <p className={styles.ragPanelSequence} aria-hidden="true">{'01  →  02  →  03'}</p>}</div>
               <div className={styles.ragArt}><Image src="/images/rag-neural.webp" alt="" fill sizes="(max-width: 767px) 100vw, 60vw" /></div>
             </Entrance>
             <Entrance className={`${styles.three} ${styles.stages}`}><Pairs entries={rag.slice(4)} /></Entrance>
@@ -91,7 +92,17 @@ export default function Site({ locale }: { locale: Locale }) {
         <section className={styles.trust} aria-labelledby="trust-title">
           <div className="container">
             <SectionHeading id="trust" label={ko ? 'TRUST & SECURITY' : 'DATA SECURITY PRINCIPLES'} title={trust[0]} description={trust[1]} />
-            <div className={styles.trustGrid}><Pairs entries={trust.slice(2)} /></div>
+            <div className={styles.trustGrid}>
+              {trustLabels.map((label, index) => (
+                <article key={label}>
+                  {ko && <div className={styles.trustMeta} aria-hidden="true">
+                    <span>{`0${index + 1}`}</span><span>{label}</span>
+                  </div>}
+                  <h3>{trust[2 + index * 2]}</h3>
+                  <p>{trust[3 + index * 2]}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
         <CompanySections locale={locale} />

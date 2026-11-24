@@ -108,6 +108,8 @@
 .stages h3 { color: #087b86; }
 .trustGrid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin-top: 0; }
 .trustGrid article { padding: 23px; background: #ffffff0a; border: 1px solid #ffffff16; border-radius: 10px; }
+.trustMeta { display: flex; align-items: center; gap: 10px; color: #7f9bb0; font: 500 11px "Figma Inter", sans-serif; letter-spacing: 1.8px; }
+.trustMeta span:first-child { color: #54cee3; font-size: 13px; font-weight: 600; letter-spacing: normal; }
 @media (max-width: 767px) {
   .headerInner img { width: 118px; }
   .headerInner nav { position: absolute; inset: 100% 0 auto; align-items: stretch; flex-direction: column; gap: 0; padding: 44px 24px 28px; background: #fff; height: calc(100dvh - var(--header-height)); overflow: auto; }
@@ -294,14 +296,82 @@
     letter-spacing: 1.2px;
     margin-bottom: 22px;
   }
+  :global(html[lang="ko"]) .trust {
+    padding-block: 120px;
+    background: linear-gradient(137.284deg, #0d1620, #1c3149 74.627%);
+  }
+  :global(html[lang="ko"]) .trust .sectionHeading {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42.68%);
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  :global(html[lang="ko"]) .trust h2 {
+    color: #f5f9fc;
+    font: 500 44px/1.45 "Noto Sans KR", sans-serif;
+    letter-spacing: -1px;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .trust .sectionHeading > p {
+    max-width: none;
+    color: #afbfce;
+    font: 400 19px/1.6 "Noto Sans KR", sans-serif;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .trustGrid { gap: 20px; }
+  :global(html[lang="ko"]) .trustGrid article {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
+    min-height: 190px;
+    padding: 32px clamp(16px, 1.94vw, 28px) 25px;
+    border: 1px solid #2e4a63;
+    border-radius: 18px;
+    background: rgb(255 255 255 / 4%);
+  }
+  :global(html[lang="ko"]) .trustGrid h3 { color: #f5f9fc; font: 500 23px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
+  :global(html[lang="ko"]) .trustGrid p {
+    margin: 0;
+    color: #afbfce;
+    font: 400 16px/1.65 "Noto Sans KR", sans-serif;
+    white-space: pre-line;
+  }
   :global(html[lang="ko"]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 1.4; color: #263744; }
   :global(html[lang="ko"]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 1.55; }
   :global(html[lang="ko"]) .ragPanel { grid-template-columns: 38.11% minmax(0, 1fr); }
   :global(html[lang="ko"]) .ragPanel > div:first-child { padding: 50px 24px 28px 48px; align-self: start; }
-  :global(html[lang="ko"]) .ragPanelLabel { display: block; font-size: 12px; color: #74d7db; margin-bottom: 26px; }
-  :global(html[lang="ko"]) .ragPanel h3 { color: #f4fafc; font-size: 34px; font-weight: 500; white-space: pre-line; }
-  :global(html[lang="ko"]) .ragPanel ul { font-size: 20px; }
-  :global(html[lang="ko"]) .ragPanelSequence { display: block; margin-top: 26px; color: #74d7db; }
+  :global(html[lang="ko"]) .ragPanelLabel { display: block; font: 400 12px/1.55 "Noto Sans KR", sans-serif; color: #74d7db; margin-bottom: 26px; }
+  :global(html[lang="ko"]) .ragPanel h3 {
+    color: #f4fafc;
+    font: 500 34px/1.55 "Noto Sans KR", sans-serif;
+    letter-spacing: normal;
+    white-space: pre-line;
+  }
+  :global(html[lang="ko"]) .ragPanel ul {
+    margin-top: 26px;
+    color: #b4ced6;
+    font: 400 20px/1.55 "Noto Sans KR", sans-serif;
+  }
+  :global(html[lang="ko"]) .ragPanelSequence {
+    display: block;
+    margin-top: 26px;
+    color: #74d7db;
+    font: 400 15px/1.55 "Noto Sans KR", sans-serif;
+    white-space: pre-wrap;
+  }
+  :global(html[lang="ko"]) .stages { gap: clamp(24px, 3.89vw, 56px); }
+  :global(html[lang="ko"]) .stages article { border: 0; padding: 0; }
+  :global(html[lang="ko"]) .stages h3 {
+    color: #147b89;
+    font: 400 13px/1.55 "Noto Sans KR", sans-serif;
+    white-space: pre-wrap;
+  }
+  :global(html[lang="ko"]) .stages p {
+    margin-top: 16px;
+    color: #657481;
+    font: 400 17px/1.55 "Noto Sans KR", sans-serif;
+    white-space: pre-line;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
