@@ -225,7 +225,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: radial-gradient(ellipse 490px 467px at 83% 51%, #4caba138, transparent), linear-gradient(90deg, #f6f9f8, #f0f6f4 55%, #e3efed);
+  background: radial-gradient(ellipse 34% 95% at 82.64% 50.81%, rgb(76 171 161 / 22%), rgb(128 190 181 / 10%) 45%, rgb(183 216 207 / 0%)), linear-gradient(90deg, #f6f9f8, #f0f6f4 55%, #e3efeb);
 }
 .project .sectionHeading { flex-direction: column; align-items: start; gap: 1.1rem; margin: 0; }
 .project .sectionHeading > p { max-width: min(50%, 52ch); }
@@ -242,7 +242,7 @@
   font: 500 11px "Noto Sans KR", sans-serif;
   letter-spacing: 1.2px;
 }
-.orbitMarker { offset-rotate: 0deg; }
+.markerPulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
 
 @media (prefers-reduced-motion: no-preference) {
   .projectEntrance .eyebrow { --rise: 12px; }
@@ -254,18 +254,34 @@
       project-rise 702ms cubic-bezier(.22, 1, .36, 1) var(--delay, 0ms) both;
   }
   .helixDot {
-    animation: signal-breathe 7.5s ease-in-out infinite both;
-    animation-delay: calc(var(--phase) - 7.5s);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+      signal-opacity 7.5s ease-in-out var(--fade-phase) infinite,
+      signal-scale 7.5s ease-in-out var(--zoom-phase) infinite,
+      signal-drift 7.5s ease-in-out var(--drift-phase) infinite;
   }
-  .orbitMarker { animation: project-orbit var(--orbit-duration) linear infinite; }
+  .markerPulse { animation: project-marker-pulse 3.75s ease-out var(--pulse-delay) infinite; }
 }
 
 @keyframes project-fade { from { opacity: 0; } }
 @keyframes project-rise { from { translate: 0 var(--rise, 16px); } }
-@keyframes project-orbit { to { offset-distance: 100%; } }
+@keyframes project-marker-pulse {
+  from { opacity: .75; scale: 1; }
+  37.33%, to { opacity: 0; scale: var(--pulse-scale); }
+}
 
-@keyframes signal-breathe {
-  50% { opacity: calc(var(--dot-opacity) * .35); }
+@keyframes signal-opacity {
+  0%, 100% { opacity: var(--fade-first); }
+  50% { opacity: var(--fade-second); }
+}
+@keyframes signal-scale {
+  0%, 100% { scale: var(--zoom-first); }
+  50% { scale: var(--zoom-second); }
+}
+@keyframes signal-drift {
+  0%, 100% { translate: 0 var(--drift-first); }
+  50% { translate: 0 var(--drift-second); }
 }
 
 .capabilities { background: #fdfcfc; }
