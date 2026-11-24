@@ -8,7 +8,15 @@ const anchors = ['crm', 'company', 'project', 'capabilities'];
 
 export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels: string[] }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const ko = locale === 'ko';
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 0);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -22,10 +30,10 @@ export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels
   }, [open]);
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-scrolled={scrolled}>
       <div className={styles.headerInner}>
         <a href={`/${locale}/`} aria-label="TuringBio">
-          <Image src="/images/turing-logo.png" alt="TuringBio" width={680} height={140} preload />
+          <Image src="/images/turing-logo-transparent.png" alt="TuringBio" width={680} height={140} preload />
         </a>
         <div className={styles.controls}>
           {(['ko', 'en'] as const).map(language => (

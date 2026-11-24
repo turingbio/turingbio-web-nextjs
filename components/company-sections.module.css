@@ -312,8 +312,7 @@
 
   :global(html[lang="ko"]) .eyebrow {
     color: #147b89;
-    font-weight: 500;
-    line-height: 1.2;
+    font: 500 12px "Noto Sans KR", sans-serif;
     letter-spacing: 1.2px;
     margin-bottom: 22px;
   }
@@ -364,6 +363,8 @@
     background: #49a6b2;
   }
 
+  :global(html[lang="ko"]) .section[aria-labelledby="origin-title"] .eyebrow { font-family: "Figma Inter", sans-serif; }
+
   :global(html[lang="ko"]) .product {
     display: flex;
     flex-direction: column;
@@ -388,11 +389,12 @@
   :global(html[lang="ko"]) .steps li { min-height: 230px; padding-right: 28px; }
 
   :global(html[lang="ko"]) .project .sectionHeading { gap: 24px; }
+  :global(html[lang="ko"]) .project .eyebrow { color: #267881; margin-bottom: 24px; white-space: pre-wrap; }
   :global(html[lang="ko"]) .project .sectionHeading > p { max-width: min(54%, 65ch); color: #526171; line-height: 1.65; }
 
   :global(html[lang="ko"]) .capabilities .sectionHeading { margin-bottom: 40px; }
   :global(html[lang="ko"]) .capabilities .sectionHeading h2 { line-height: 1.55; }
-  :global(html[lang="ko"]) .capabilities .eyebrow { margin-bottom: 40px; color: #267881; }
+  :global(html[lang="ko"]) .capabilities .eyebrow { margin-bottom: 40px; color: #267881; line-height: 1.55; letter-spacing: normal; }
   :global(html[lang="ko"]) .capabilityRows { gap: 24px; min-height: 372px; }
   :global(html[lang="ko"]) .capabilityRows li {
     min-height: 100px;

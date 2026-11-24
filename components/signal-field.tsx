@@ -2,6 +2,8 @@ import keyframes from './signal-keyframes.json';
 
 export default function SignalField({ hero = false, className }: { hero?: boolean; className: string }) {
   const signals = keyframes.filter(signal => signal.id.startsWith(hero ? '280-' : '245-'));
+  // The Hero's exported 60-second timeline holds its last pose after second six.
+  const activeFraction = hero ? 0.1 : 1;
 
   return (
     <svg aria-hidden="true" className={className} viewBox={hero ? '0 0 1440 824' : '0 0 1312 535'} preserveAspectRatio="none">
@@ -16,10 +18,10 @@ export default function SignalField({ hero = false, className }: { hero?: boolea
                 <animate
                   key={attribute}
                   attributeName={attribute}
-                  dur="60s"
+                  dur={hero ? '9s' : '60s'}
                   repeatCount="indefinite"
                   values={track.values.map(value => value + offset).join(';')}
-                  keyTimes={track.times.join(';')}
+                  keyTimes={track.times.map(time => Math.min(time / activeFraction, 1)).join(';')}
                 />
               );
             })}

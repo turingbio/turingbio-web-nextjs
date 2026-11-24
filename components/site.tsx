@@ -9,10 +9,14 @@ import styles from './site.module.css';
 type Locale = 'ko' | 'en';
 
 const clean = (value: string) => value.replace(/\s*\n\s*/g, ' ').trim();
+const credentialLabels = ['GROUP', 'VENTURE', 'AI PATENT', 'CERTIFICATION', 'GLOBAL R&D'];
 
-function Pairs({ entries }: { entries: string[] }) {
+function Pairs({ entries, labels }: { entries: string[]; labels?: string[] }) {
   return entries.filter((_, index) => index % 2 === 0).map((title, index) => (
-    <article key={title}><h3>{title}</h3><p>{entries[index * 2 + 1]}</p></article>
+    <article key={title}>
+      {labels && <p className={styles.credentialLabel}>{labels[index]}</p>}
+      <h3>{title}</h3><p>{entries[index * 2 + 1]}</p>
+    </article>
   ));
 }
 
@@ -55,7 +59,7 @@ export default function Site({ locale }: { locale: Locale }) {
           </ul>
         </section>
         <section className={styles.credentials} aria-label={locale === 'ko' ? '주요 이력' : 'Credentials'}>
-          <div className="container"><Pairs entries={read('Credentials')} /></div>
+          <div className="container"><Pairs entries={read('Credentials')} labels={credentialLabels} /></div>
         </section>
         <section id="crm" className={styles.crm} aria-labelledby="crm-title">
           <div className="container">
@@ -76,7 +80,7 @@ export default function Site({ locale }: { locale: Locale }) {
         </section>
         <section id="rag" className={styles.rag} aria-labelledby="rag-title">
           <div className="container">
-            <SectionHeading id="rag" label="GENERATIVE AI · RAG" title={rag[0]} description={rag[1]} />
+            <SectionHeading id="rag" label={ko ? 'GENERATIVE AI  /  RAG' : 'GENERATIVE AI · RAG'} title={rag[0]} description={rag[1]} />
             <Entrance className={styles.ragPanel}>
               <div>{ko && <p className={styles.ragPanelLabel}>KNOWLEDGE ENGINE</p>}<h3>{rag[2]}</h3><ul>{content.rows.filter(row => row.section === 'RAG')[3][locale].split('\n').map(item => <li key={item}>{item}</li>)}</ul>{ko && <p className={styles.ragPanelSequence} aria-hidden="true">01 → 02 → 03</p>}</div>
               <div className={styles.ragArt}><Image src="/images/rag-neural.webp" alt="" fill sizes="(max-width: 767px) 100vw, 60vw" /></div>
@@ -86,7 +90,7 @@ export default function Site({ locale }: { locale: Locale }) {
         </section>
         <section className={styles.trust} aria-labelledby="trust-title">
           <div className="container">
-            <SectionHeading id="trust" label="DATA SECURITY PRINCIPLES" title={trust[0]} description={trust[1]} />
+            <SectionHeading id="trust" label={ko ? 'TRUST & SECURITY' : 'DATA SECURITY PRINCIPLES'} title={trust[0]} description={trust[1]} />
             <div className={styles.trustGrid}><Pairs entries={trust.slice(2)} /></div>
           </div>
         </section>
