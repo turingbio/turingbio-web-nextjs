@@ -413,8 +413,10 @@
     background: #9cb6bd;
   }
 
-  :global(html[lang="ko"]) .section[aria-labelledby="origin-title"] .eyebrow { font-family: "Figma Inter", sans-serif; }
-  :global(html[lang="ko"]) .section[aria-labelledby="origin-title"] .sectionHeading h2 { line-height: 1.55; }
+  :global(html[lang="ko"]) .section[aria-labelledby="origin-title"] .eyebrow { font-family: "Figma Inter", sans-serif; line-height: 15px; }
+  :global(html[lang="ko"]) .section[aria-labelledby="origin-title"] .sectionHeading {
+    font-family: "Noto Sans KR", sans-serif;
+  }
 
   :global(html[lang="ko"]) .product {
     display: flex;
@@ -422,16 +424,17 @@
     align-items: start;
     gap: 14px;
     min-height: 371px;
+    font-family: "Noto Sans KR", sans-serif;
     border: 0;
     border-radius: 22px;
     padding: 40px 36px;
     background: linear-gradient(138.8deg, #071b2b, #183a52 71.429%);
   }
   :global(html[lang="ko"]) .cardIndex { color: #54cee3; font: 500 11px/13px "Figma Inter", sans-serif; letter-spacing: 2px; }
-  :global(html[lang="ko"]) .product h3 { margin: 0; color: #f5f9fc; font-size: 34px; line-height: 1.2; font-weight: 500; letter-spacing: -1px; }
+  :global(html[lang="ko"]) .product h3 { margin: 0; color: #f5f9fc; font-size: 34px; line-height: 41px; font-weight: 500; letter-spacing: -1px; }
   :global(html[lang="ko"]) .product p { color: #c3d1dc; font-size: 16px; white-space: pre-line; }
-  :global(html[lang="ko"]) .product .productSubtitle { margin: 0; color: #9fdfe8; font-size: 17px; line-height: 20px; font-weight: 500; }
-  :global(html[lang="ko"]) .product .productBody { margin: 27px 0 0; line-height: 26px; }
+  :global(html[lang="ko"]) .product .productSubtitle { margin: 0; color: #9fdfe8; font-size: 17px; line-height: 20px; font-weight: 500; letter-spacing: 0; }
+  :global(html[lang="ko"]) .product .productBody { margin: 20px 0 0; line-height: 26px; }
   :global(html[lang="ko"]) .tags { margin: 0; }
   :global(html[lang="ko"]) .tags li {
     padding: 6px 12px;
