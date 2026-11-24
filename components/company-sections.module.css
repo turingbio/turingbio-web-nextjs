@@ -153,7 +153,7 @@
   height: 7px;
   border-radius: 50%;
   content: '';
-  background: #2694a4;
+  background: #147b89;
 }
 .milestones li:last-child::before { box-shadow: 0 0 0 5px #1694a52c; }
 @media (prefers-reduced-motion: no-preference) {
@@ -284,7 +284,7 @@
   50% { translate: 0 var(--drift-second); }
 }
 
-.capabilities { background: #fdfcfc; }
+.capabilities { background: #fff; }
 .capabilityRows li {
   position: relative;
   display: grid;
@@ -398,7 +398,7 @@
     color: #19212a;
     font-size: 44px;
     font-weight: 500;
-    line-height: 1.45;
+    line-height: 64px;
     letter-spacing: -1px;
     white-space: pre-line;
     text-wrap: wrap;
@@ -408,7 +408,7 @@
     flex-basis: min(43%, 560px);
     color: #657481;
     font-size: 19px;
-    line-height: 1.6;
+    line-height: 30px;
     white-space: pre-line;
   }
 
@@ -429,11 +429,11 @@
     align-items: start;
   }
   :global(html[lang]) .companyCopy { padding-top: 14px; font-family: "Noto Sans KR", sans-serif; }
-  :global(html[lang]) .companyCopy .sectionHeading { margin-bottom: 20px; }
+  :global(html[lang]) .companyCopy .sectionHeading { margin-bottom: 19px; }
   :global(html[lang]) .companyCopy .sectionHeading h2 {
     color: #152436;
     font-size: 35px;
-    line-height: 1.5;
+    line-height: 53px;
     letter-spacing: -0.7px;
   }
   :global(html[lang]) .companyCopy > p {
@@ -441,7 +441,7 @@
     margin: 0;
     color: #526171;
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 29px;
     letter-spacing: -0.36px;
     white-space: pre-line;
   }
@@ -449,7 +449,7 @@
     aspect-ratio: 544 / 349;
     box-shadow: 0 20px 50px rgb(48 61 92 / 8%);
   }
-  :global(html[lang]) .disciplines { gap: 18px; margin-top: 46px; }
+  :global(html[lang]) .disciplines { gap: 18px; margin-top: 45px; }
   :global(html[lang]) .disciplines li {
     display: flex;
     align-items: center;
@@ -519,12 +519,15 @@
     min-height: 166px;
     padding: 34px 24px 0 0;
     border-top: 0;
-    background: linear-gradient(#d3e3e6, #d3e3e6) left 7px / calc(100% - 24px) 1px no-repeat;
+    background: linear-gradient(#d3e3e6, #d3e3e6) 10px 6.5px / calc(100% - 34px) 1px no-repeat;
   }
   :global(html[lang]) .milestones li::before { top: 2px; width: 10px; height: 10px; }
+  :global(html[lang]) .milestones li:last-child { background-position: 14px 6.5px; background-size: calc(100% - 38px) 1px; }
+  :global(html[lang]) .milestones li:last-child::before { top: 0; width: 14px; height: 14px; background: #31c6cd; }
+  :global(html[lang]) .milestones li:last-child time { color: #1aa6b3; }
   :global(html[lang]) .milestones time { color: #147b89; font: 600 28px/34px "Figma Inter", sans-serif; letter-spacing: -0.6px; }
   :global(html[lang]) .milestones h3 { margin: 0; color: #152436; font: 500 18px/26px "Noto Sans KR", sans-serif; letter-spacing: -0.3px; }
-  :global(html[lang]) .milestones p { color: #73808d; font: 400 14px/21px "Noto Sans KR", sans-serif; }
+  :global(html[lang]) .milestones p { color: #73808d; font: 400 14px/22px "Noto Sans KR", sans-serif; }
   :global(html[lang]) .milestones p,
   :global(html[lang]) .steps p { white-space: pre-line; }
   :global(html[lang]) .steps li {
@@ -542,7 +545,7 @@
     align-self: stretch;
     gap: 12px;
     color: #1aa6b3;
-    font: 300 44px/1.1 "Figma Inter", sans-serif;
+    font: 300 44px/48px "Figma Inter", sans-serif;
     letter-spacing: -1.5px;
   }
   :global(html[lang]) .stepNumber::after { content: ''; flex: 1; height: 1px; background: #cfe0e3; }
@@ -550,15 +553,15 @@
   :global(html[lang]) .steps h3 { margin: 0; color: #152436; font: 500 26px/31px "Noto Sans KR", sans-serif; letter-spacing: -0.6px; }
   :global(html[lang]) .steps p { color: #526171; font: 400 16px/26px "Noto Sans KR", sans-serif; }
   :global(html[lang]) .areaStrip { margin-top: 56px; min-height: 135px; gap: 50px; }
-  :global(html[lang]) .areas li { flex-basis: 0; font-size: 16px; letter-spacing: -0.3px; }
+  :global(html[lang]) .areas li { flex-basis: 0; font-size: 16px; line-height: 19px; letter-spacing: -0.3px; }
 
   :global(html[lang]) .project .sectionHeading { gap: 24px; }
   :global(html[lang]) .project .eyebrow { color: #267881; margin-bottom: 24px; white-space: pre-wrap; }
-  :global(html[lang]) .project .sectionHeading > p { max-width: min(54%, 65ch); color: #526171; line-height: 1.65; }
+  :global(html[lang]) .project .sectionHeading > p { max-width: min(54%, 65ch); color: #526171; line-height: 31px; }
 
   :global(html[lang]) .capabilities .sectionHeading { margin-bottom: 40px; }
-  :global(html[lang]) .capabilities .sectionHeading h2 { line-height: 1.55; }
-  :global(html[lang]) .capabilities .eyebrow { margin-bottom: 40px; color: #267881; line-height: 1.55; letter-spacing: normal; }
+  :global(html[lang]) .capabilities .sectionHeading h2 { line-height: 68px; letter-spacing: normal; }
+  :global(html[lang]) .capabilities .eyebrow { margin-bottom: 40px; color: #267881; line-height: 19px; letter-spacing: normal; }
   :global(html[lang]) .capabilityRows { gap: 24px; min-height: 372px; }
   :global(html[lang]) .capabilityRows { grid-auto-rows: 100px; }
   :global(html[lang]) .capabilityRows li {
@@ -569,9 +572,9 @@
     padding-block: 26px;
     border: 0;
   }
-  :global(html[lang]) .capabilityRows h3 { font: 500 24px/1.55 "Noto Sans KR", sans-serif; color: #25313a; }
-  :global(html[lang]) .capabilityRows p { padding: 0; color: #636d77; font-size: 17px; }
-  :global(html[lang]) .rowIndex { font-size: 13px; color: #25818b; }
+  :global(html[lang]) .capabilityRows h3 { font: 500 24px/37px "Noto Sans KR", sans-serif; color: #25313a; }
+  :global(html[lang]) .capabilityRows p { padding: 0; color: #636d77; font-size: 17px; line-height: 26px; }
+  :global(html[lang]) .rowIndex { font-size: 13px; line-height: 20px; color: #25818b; }
   :global(html[lang]) .preview {
     inset: 0 0 auto auto;
     translate: none;
@@ -582,6 +585,11 @@
   :global(html[lang]) .capabilityRows li:nth-child(3) .preview { top: -68px; }
   :global(html[lang]) .capabilityRows li:hover .preview { translate: none; }
 
+  :global(html[lang]) .footerGrid .eyebrow {
+    margin: 20px 0 0;
+    font: 500 12px/16px "Figma Inter", sans-serif;
+    letter-spacing: 1.44px;
+  }
   .footerGrid { grid-template-columns: 1fr max-content minmax(0, 555px); gap: clamp(48px, 7.78vw, 112px); }
   .footerGrid nav { align-self: start; font-size: 14px; color: #33424f; }
   .footerGrid h2 { margin-bottom: 22px; }
@@ -590,7 +598,7 @@
   .footerInfo dl div { grid-template-columns: 112px minmax(0, 1fr); gap: 0; margin-bottom: 10px; line-height: 22px; }
   .footerInfo dl div:last-child { margin-bottom: 0; }
   .footerInfo dt { color: #7c8792; font-size: 13px; }
-  .footerInfo dd { color: #526171; font-size: 14px; line-height: 22px; }
+  .footerInfo dd { color: #526171; font-size: 14px; line-height: 22px; letter-spacing: -0.015em; }
   .footerInfo dl div:first-child dd { color: #152436; font-weight: 500; }
   .footerBase p { line-height: 20px; }
 }

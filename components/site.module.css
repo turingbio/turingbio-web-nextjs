@@ -18,7 +18,7 @@
     background-image: linear-gradient(100deg, #eaf8f9, #e5f7f7 8%, #f4fbfb 43%, #fefefe 51%, #f8f3f8 69%, #f8f2f7 84%, #fefdfd);
   }
   .headerInner { position: relative; justify-content: flex-start; }
-  .headerInner img { width: 190px; height: 37.05px; }
+  .headerInner img { width: 190px; height: 37.05px; margin-bottom: 2px; }
   .headerInner nav {
     position: absolute;
     right: 12.8%;
@@ -37,7 +37,7 @@
   }
   .controls {
     position: absolute;
-    right: clamp(8px, 2.43vw, 35px);
+    right: clamp(8px, 1.05vw, 15px);
     display: grid;
     grid-template-columns: repeat(2, 21px);
     gap: 31px;
@@ -66,11 +66,11 @@
 .credentials .credentialLabel { color: #2a8f9c; font: 500 11px "Figma Inter", sans-serif; letter-spacing: 2px; margin: 0; }
 @media (min-width: 1024px) {
   .credentials > div { padding-block: 44px; gap: 0; }
-  .credentials article { display: grid; align-content: start; gap: 8px; padding-inline: clamp(12px, 1.94vw, 28px) 12px; border-color: #e5eaee; }
+  .credentials article { display: grid; align-content: start; gap: 8px; padding-inline: clamp(12px, 1.94vw, 28px) 16px; border-color: #e5eaee; }
   .credentials article:first-child { border: 0; padding-inline-start: 0; }
   .credentials h3 { color: #152436; font: 500 clamp(16px, 1.39vw, 20px)/1.4 "Noto Sans KR", sans-serif; letter-spacing: -.4px; text-wrap: wrap; }
   .credentials p { color: #73808d; font-size: 14px; line-height: 1.5; margin: 0; }
-  .credentials .credentialLabel { line-height: normal; }
+  .credentials .credentialLabel { line-height: 13px; }
 }
 .crm, .rag, .trust { padding-block: clamp(64px, 8vw, 115px); }
 .crm { color: #f7fafb; background: linear-gradient(113deg, #131820, #283c57); }
@@ -152,8 +152,12 @@
     display: block;
     align-content: normal;
     padding: 0;
-    background: radial-gradient(ellipse at 21% -7%, #dfefed 0, transparent 36%),
-      radial-gradient(ellipse at 68% -10%, #e9dceb 0, transparent 38%), #fdfcfc;
+    background:
+      radial-gradient(ellipse 146px 124px at 1200px 342px, rgb(243 192 165 / 14%) 0 24%, rgb(243 192 165 / 7%) 62%, rgb(243 192 165 / 0) 100%),
+      radial-gradient(ellipse 281px 273px at 124px -20px, rgb(49 198 205 / 5%) 0, rgb(49 198 205 / 2.5%) 45%, rgb(49 198 205 / 0) 100%),
+      radial-gradient(ellipse 313px 270px at 1099px -2px, rgb(211 163 204 / 20%) 0 65%, rgb(211 163 204 / 10%) 82%, rgb(211 163 204 / 0) 100%),
+      radial-gradient(ellipse 491px 414px at 220px 4px, rgb(49 198 205 / 10%) 0 78%, rgb(49 198 205 / 5%) 89%, rgb(49 198 205 / 0) 100%),
+      #fdfcfc;
   }
   :global(html[lang]) .heroLines { inset: 0 -1.42%; background-size: 100% 100%; opacity: 1; }
   :global(html[lang]) .heroSignals, .diagramSignals {
@@ -195,11 +199,12 @@
     inset: 700px 0 auto;
     margin: 0;
     gap: 16px 70px;
+    font: 500 11px/13px "Figma Inter", sans-serif;
     letter-spacing: 2.5px;
   }
   :global(html[lang]) .crm { padding: 136px 0 75px; min-height: 1270px; }
   :global(html[lang]) .crm .sectionHeading {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 29.73%);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30.19%);
     align-items: start;
     min-height: 264px;
     margin: 0;
@@ -214,7 +219,7 @@
     white-space: pre-wrap;
     margin-bottom: 25px;
   }
-  :global(html[lang]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 1.4; letter-spacing: -2.36px; color: #f5f9fc; }
+  :global(html[lang]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 83px; letter-spacing: -2.36px; color: #f5f9fc; }
   :global(html[lang]) .crm .sectionHeading > p {
     padding-top: 66px;
     color: #afbfce;
@@ -238,29 +243,31 @@
   }
   :global(html[lang]) .connector { display: none; }
   :global(html[lang]) .diagram :is(.inputs, .hub, .outputs) { position: absolute; }
-  :global(html[lang]) .inputs { left: 2.515%; top: 102px; width: 20.122%; gap: 29px; }
-  :global(html[lang]) .outputs { left: 74.238%; top: 123px; width: 22.942%; gap: 24px; }
+  :global(html[lang]) .inputs { left: 2.519%; top: 103px; width: 20.153%; gap: 29px; }
+  :global(html[lang]) .outputs { left: 74.351%; top: 124px; width: 22.977%; gap: 24px; }
   :global(html[lang]) .endpoints article {
     height: 91px;
     padding: 12px 17px;
     box-shadow: 0 5px 18px rgb(41 56 77 / 5%);
   }
-  :global(html[lang]) .endpoints h3 { font-size: 20px; font-weight: 500; letter-spacing: -.8px; }
+  :global(html[lang]) .endpoints h3 { font-size: 20px; font-weight: 500; line-height: 28px; letter-spacing: -.8px; color: #152436; }
+  :global(html[lang]) .outputs article { padding-inline: 19px; }
+  :global(html[lang]) .outputs h3 { font-size: 21px; line-height: 29px; letter-spacing: -.84px; }
   :global(html[lang]) .hub {
-    left: 38.338%;
-    top: 110px;
-    width: 27.439%;
+    left: 38.397%;
+    top: 111px;
+    width: 27.481%;
     height: 314px;
-    padding: 21px 23px;
-    grid-template-rows: 53px repeat(3, 65px);
+    padding: 22px 23px;
+    grid-template-rows: 52px repeat(3, 65px);
     gap: 0;
     border: 1px solid #b9dce5;
     border-radius: 14px;
     background: rgb(38 120 129 / 20%);
   }
-  :global(html[lang]) .hub > h3 { border-bottom: 1px solid #cbdce5; font-size: 25px; font-weight: 500; color: #112d43; }
-  :global(html[lang]) .hub article { transform: translateY(19px); }
-  :global(html[lang]) .hub article h3 { font-size: 16px; font-weight: 500; color: #28536a; }
+  :global(html[lang]) .hub > h3 { border-bottom: 1px solid #cbdce5; font-size: 25px; font-weight: 500; line-height: 35px; letter-spacing: -1px; color: #112d43; }
+  :global(html[lang]) .hub article { transform: translateY(21px); }
+  :global(html[lang]) .hub article h3 { font-size: 16px; font-weight: 500; line-height: 22px; letter-spacing: -.64px; color: #28536a; }
   :global(html[lang]) .diagram article p { font-size: 15px; line-height: 1.4; letter-spacing: -.6px; }
   :global(html[lang]) .hub article p { margin-top: 3px; color: #697f8e; }
   :global(html[lang]) .endpoints article p { margin-top: 6px; color: #607080; }
@@ -291,13 +298,13 @@
     grid-column: 1 / -1;
     margin: 0;
     color: #147b89;
-    font: 400 12px/1.55 "Noto Sans KR", sans-serif;
+    font: 400 12px/19px "Noto Sans KR", sans-serif;
     letter-spacing: normal;
     white-space: pre-wrap;
   }
   :global(html[lang]) .trust .kicker {
     color: #54cee3;
-    font: 500 12px "Noto Sans KR", sans-serif;
+    font: 500 12px/14px "Noto Sans KR", sans-serif;
     letter-spacing: 1.2px;
     margin-bottom: 22px;
   }
@@ -312,14 +319,14 @@
   }
   :global(html[lang]) .trust h2 {
     color: #f5f9fc;
-    font: 500 44px/1.45 "Noto Sans KR", sans-serif;
+    font: 500 44px/64px "Noto Sans KR", sans-serif;
     letter-spacing: -1px;
     white-space: pre-line;
   }
   :global(html[lang]) .trust .sectionHeading > p {
     max-width: none;
     color: #afbfce;
-    font: 400 19px/1.6 "Noto Sans KR", sans-serif;
+    font: 400 19px/30px "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
   :global(html[lang]) .trustGrid { gap: 20px; }
@@ -329,26 +336,26 @@
     align-items: start;
     gap: 14px;
     min-height: 190px;
-    padding: 32px clamp(16px, 1.94vw, 28px) 25px;
+    padding: 32px clamp(16px, 1.94vw, 28px);
     border: 1px solid #2e4a63;
     border-radius: 18px;
     background: rgb(255 255 255 / 4%);
   }
-  :global(html[lang]) .trustGrid h3 { color: #f5f9fc; font: 500 23px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
+  :global(html[lang]) .trustGrid h3 { color: #f5f9fc; font: 500 23px/28px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
   :global(html[lang]) .trustGrid p {
     margin: 0;
     color: #afbfce;
-    font: 400 16px/1.65 "Noto Sans KR", sans-serif;
+    font: 400 16px/26px "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
-  :global(html[lang]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 1.4; color: #263744; }
-  :global(html[lang]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 1.55; }
+  :global(html[lang]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 67px; letter-spacing: normal; color: #263744; }
+  :global(html[lang]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 29px; }
   :global(html[lang]) .ragPanel { grid-template-columns: 38.11% minmax(0, 1fr); }
   :global(html[lang]) .ragPanel > div:first-child { padding: 50px 24px 28px 48px; align-self: start; }
-  :global(html[lang]) .ragPanelLabel { display: block; font: 400 12px/1.55 "Noto Sans KR", sans-serif; color: #74d7db; margin-bottom: 26px; }
+  :global(html[lang]) .ragPanelLabel { display: block; font: 400 12px/19px "Noto Sans KR", sans-serif; color: #74d7db; margin-bottom: 26px; }
   :global(html[lang]) .ragPanel h3 {
     color: #f4fafc;
-    font: 500 34px/1.55 "Noto Sans KR", sans-serif;
+    font: 500 34px/53px "Noto Sans KR", sans-serif;
     letter-spacing: normal;
     white-space: pre-line;
   }
@@ -361,20 +368,20 @@
     display: block;
     margin-top: 26px;
     color: #74d7db;
-    font: 400 15px/1.55 "Noto Sans KR", sans-serif;
+    font: 400 15px/23px "Noto Sans KR", sans-serif;
     white-space: pre-wrap;
   }
   :global(html[lang]) .stages { gap: clamp(24px, 3.89vw, 56px); }
   :global(html[lang]) .stages article { border: 0; padding: 0; }
   :global(html[lang]) .stages h3 {
     color: #147b89;
-    font: 400 13px/1.55 "Noto Sans KR", sans-serif;
+    font: 400 13px/20px "Noto Sans KR", sans-serif;
     white-space: pre-wrap;
   }
   :global(html[lang]) .stages p {
     margin-top: 16px;
     color: #657481;
-    font: 400 17px/1.55 "Noto Sans KR", sans-serif;
+    font: 400 17px/26px "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
 }
