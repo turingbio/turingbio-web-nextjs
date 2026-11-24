@@ -31,7 +31,7 @@ export async function generateMetadata({
       description,
       url,
       siteName: 'TuringBio',
-      images: [{ url: '/images/turing-logo.png', alt: 'TuringBio' }],
+      images: [{ url: '/images/turingbio-logo.webp', alt: 'TuringBio' }],
       locale: ko ? 'ko_KR' : 'en_US',
       alternateLocale: ko ? 'en_US' : 'ko_KR',
     },
