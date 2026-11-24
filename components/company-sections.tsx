@@ -157,8 +157,8 @@ function Project({ locale }: { locale: Locale }) {
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <Entrance className={`container ${styles.projectEntrance}`}>
         <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
-        <ProjectHelix />
       </Entrance>
+      <ProjectHelix />
     </section>
   );
 }

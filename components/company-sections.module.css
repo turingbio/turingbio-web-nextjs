@@ -168,7 +168,7 @@
   .historyTimeline li:nth-child(4) { --history-delay: 440ms; }
   .historyTimeline li:nth-child(5) { --history-delay: 540ms; }
   .historyTimeline[data-entered] li:last-child::before {
-    animation: current-milestone-glow 2.2s ease-in-out 1.18s infinite;
+    animation: current-milestone-glow 1.4s ease-in-out 1.18s infinite;
   }
 }
 
@@ -244,17 +244,16 @@
   .projectEntrance .sectionHeading > p { --delay: 198ms; }
   .projectEntrance[data-entered] :is(.eyebrow, h2, .sectionHeading > p) {
     animation:
-      helix-appear 528ms ease-out var(--delay, 0ms) both,
+      project-fade 528ms ease-out var(--delay, 0ms) both,
       project-rise 702ms cubic-bezier(.22, 1, .36, 1) var(--delay, 0ms) both;
   }
-  .projectEntrance[data-entered] .helix { animation: helix-appear 1.2s ease-out 100ms both; }
   .helix circle {
     animation: signal-breathe 7.5s ease-in-out infinite both;
     animation-delay: calc(var(--phase) - 7.5s);
   }
 }
 
-@keyframes helix-appear { from { opacity: 0; } }
+@keyframes project-fade { from { opacity: 0; } }
 @keyframes project-rise { from { translate: 0 var(--rise, 16px); } }
 
 @keyframes signal-breathe {
