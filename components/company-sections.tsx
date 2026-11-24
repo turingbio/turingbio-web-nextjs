@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import content from '@/i18n-ko-en.json';
+import ProjectHelix from './project-helix';
 import styles from './company-sections.module.css';
 
 type Locale = 'ko' | 'en';
@@ -9,7 +10,7 @@ const links = ['crm', 'company', 'project', 'capabilities'];
 function getCopy(section: string, locale: Locale) {
   return content.rows
     .filter(row => row.section === section)
-    .map(row => row[locale].replace(/\s*\n\s*/g, ' '));
+    .map(row => locale === 'ko' ? row.ko : row.en.replace(/\s*\n\s*/g, ' '));
 }
 
 function SectionHeading({ id, eyebrow, title, body }: {
@@ -21,7 +22,7 @@ function SectionHeading({ id, eyebrow, title, body }: {
   return (
     <div className={styles.sectionHeading}>
       <div>
-        <p className={styles.eyebrow}>{eyebrow}</p>
+        <p className={styles.eyebrow} hidden={!eyebrow}>{eyebrow}</p>
         <h2 id={id} tabIndex={-1}>{title}</h2>
       </div>
       {body && <p>{body}</p>}
@@ -35,7 +36,7 @@ function Company({ locale }: { locale: Locale }) {
     <section id="company" className={styles.company} aria-labelledby="company-title">
       <div className={`container ${styles.companyInner}`}>
         <div className={styles.companyCopy}>
-          <SectionHeading id="company-title" eyebrow="ABOUT TURINGBIO" title={title} />
+          <SectionHeading id="company-title" eyebrow="" title={title} />
           <p>{body}</p>
           <ul className={styles.disciplines}>
             {disciplines.map(label => <li key={label}>{label}</li>)}
@@ -64,9 +65,9 @@ function Origin({ locale }: { locale: Locale }) {
         <div className={styles.products}>
           {products.map(({ title, subtitle, body, tags }, index) => (
             <article className={styles.product} key={title}>
-              <span className={styles.cardIndex}>0{index + 1} / MEDICAL AI</span>
-              <h3>{title}</h3>
-              {subtitle && <p className={styles.productSubtitle}>{subtitle}</p>}
+              <span className={styles.cardIndex}>{['DIGITAL THERAPEUTICS', 'COUNSELING PLATFORM', 'CONVERSATIONAL AI'][index]}</span>
+              <h3>{index === 0 ? 'DTx' : title}</h3>
+              {(index === 0 || subtitle) && <p className={styles.productSubtitle}>{index === 0 ? title : subtitle}</p>}
               <p>{body}</p>
               <ul className={styles.tags}>{tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
             </article>
@@ -136,7 +137,7 @@ function Method({ locale }: { locale: Locale }) {
 }
 
 function Project({ locale }: { locale: Locale }) {
-  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의 CRM·AX 프로젝트.' : 'CRM and AX in global K-beauty.';
+  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의\nCRM·AX 프로젝트.' : 'CRM and AX in global K-beauty.';
   const body = locale === 'ko'
     ? 'K-뷰티 브랜드의 고객 데이터를 연결하고 고객 경험 개선을 추진하는 프로젝트입니다.'
     : 'An initiative to connect customer data and improve the customer experience for a K-beauty brand.';
@@ -144,9 +145,7 @@ function Project({ locale }: { locale: Locale }) {
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <div className="container">
         <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
-        <div className={styles.projectSignal} aria-hidden="true">
-          <span /><span /><span /><span /><span />
-        </div>
+        <ProjectHelix />
       </div>
     </section>
   );

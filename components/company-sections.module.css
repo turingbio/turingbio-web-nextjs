@@ -174,30 +174,28 @@
 .project { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(103deg, #f5f9f8 18%, #dcefed 100%); }
 .project .sectionHeading { flex-direction: column; align-items: start; gap: 1.1rem; margin: 0; }
 .project .sectionHeading > p { max-width: min(50%, 52ch); }
-.projectSignal { position: absolute; z-index: -1; width: min(54%, 720px); aspect-ratio: 1; top: -26%; right: -5%; rotate: 26deg; opacity: 0.64; }
-.projectSignal span {
-  display: block;
-  height: 14%;
-  border-bottom: 2px dotted #68aeb9;
-  border-radius: 50%;
-  transform-origin: 100% 50%;
+.helix {
+  position: absolute;
+  z-index: -1;
+  width: min(72.2vw, 1040px);
+  top: 22%;
+  right: -11.8%;
+  rotate: -12deg;
 }
-.projectSignal span:nth-child(even) { border-color: #9bc9c4; }
-.projectSignal span:nth-child(2n) { width: 80%; }
-.projectSignal span:nth-child(3n) { width: 63%; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .projectSignal span {
-    animation: signal-breathe 5.6s ease-in-out infinite alternate;
-    animation-delay: calc(var(--signal-phase, 0) * -1s);
+  .helix { animation: helix-appear 1.2s ease-out 100ms both; }
+  .helix circle {
+    animation: signal-breathe 7.5s ease-in-out infinite both;
+    animation-delay: calc(var(--phase) - 7.5s);
   }
-  .projectSignal span:nth-child(2n) { --signal-phase: 2; }
-  .projectSignal span:nth-child(3n) { --signal-phase: 4; }
 }
 
+@keyframes helix-appear { from { opacity: 0; } }
+
 @keyframes signal-breathe {
-  from { opacity: 0.4; scale: 0.97 1; }
-  to { opacity: 1; scale: 1 1.08; }
+  0%, 100% { opacity: 0.56; }
+  50% { opacity: 0.16; }
 }
 
 .capabilities { background: #fdfcfc; }
@@ -280,12 +278,133 @@
   .steps li,
   .steps li:first-child { padding: 1rem 0; border-left: 0; border-top: 1px solid #d4e2e3; }
   .project .sectionHeading > p { max-width: 32ch; }
-  .projectSignal { width: 52%; top: 15%; right: -10%; opacity: 0.34; }
+  .helix { width: 130%; top: 22%; right: -57%; opacity: 0.48; }
   .capabilityRows li { grid-template-columns: 2.3rem minmax(0, 1fr); gap: 0.4rem; padding-block: 1rem; }
   .capabilityRows p { grid-column: 2; padding-right: 0; }
   .preview { display: none; }
   .footer { padding-block: 3rem 1.5rem; }
   .copyright { margin-top: 2rem; }
+}
+
+@media (min-width: 1100px) {
+  :global(html[lang="ko"]) .section {
+    padding-block: 120px;
+  }
+
+  :global(html[lang="ko"]) .sectionHeading h2 {
+    max-width: none;
+    color: #19212a;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -1px;
+    white-space: pre-line;
+    text-wrap: wrap;
+  }
+
+  :global(html[lang="ko"]) .sectionHeading > p {
+    flex-basis: min(43%, 560px);
+    color: #657481;
+    font-size: 19px;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+
+  :global(html[lang="ko"]) .eyebrow {
+    color: #147b89;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+    margin-bottom: 22px;
+  }
+
+  :global(html[lang="ko"]) .company {
+    min-height: 565px;
+    padding-block: 108px 85px;
+  }
+  :global(html[lang="ko"]) .companyInner {
+    grid-template-columns: minmax(0, 700fr) minmax(0, 544fr);
+    column-gap: clamp(32px, 4.72vw, 68px);
+  }
+  :global(html[lang="ko"]) .companyCopy .sectionHeading { margin-bottom: 20px; }
+  :global(html[lang="ko"]) .companyCopy .sectionHeading h2 {
+    color: #152436;
+    font-size: 35px;
+    line-height: 1.5;
+    letter-spacing: -0.7px;
+  }
+  :global(html[lang="ko"]) .companyCopy > p {
+    color: #526171;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: -0.36px;
+  }
+  :global(html[lang="ko"]) .companyArt {
+    aspect-ratio: 544 / 349;
+    box-shadow: 0 20px 50px rgb(48 61 92 / 8%);
+  }
+  :global(html[lang="ko"]) .disciplines { gap: 18px; margin-top: 30px; }
+  :global(html[lang="ko"]) .disciplines li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 1 326px;
+    min-height: 72px;
+    padding-inline: 20px;
+    border-radius: 14px;
+    border: 0;
+    background: rgb(255 255 255 / 60%);
+    font-weight: 500;
+  }
+  :global(html[lang="ko"]) .disciplines li::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #49a6b2;
+  }
+
+  :global(html[lang="ko"]) .product {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
+    min-height: 371px;
+    border: 0;
+    border-radius: 22px;
+    padding: 40px 36px;
+    background: linear-gradient(139deg, #091f30, #12384c 67%, #174864);
+  }
+  :global(html[lang="ko"]) .cardIndex { color: #54cee3; font-size: 11px; letter-spacing: 2px; font-weight: 500; }
+  :global(html[lang="ko"]) .product h3 { margin: 0; color: #f5f9fc; font-size: 34px; line-height: 1.2; font-weight: 500; letter-spacing: -1px; }
+  :global(html[lang="ko"]) .product p { color: #c3d1dc; font-size: 16px; white-space: pre-line; }
+  :global(html[lang="ko"]) .product .productSubtitle { color: #9fdfe8; font-size: 17px; line-height: 1.2; font-weight: 500; }
+  :global(html[lang="ko"]) .tags { margin: auto 0 0; }
+
+  :global(html[lang="ko"]) .history .sectionHeading { margin-bottom: 64px; }
+  :global(html[lang="ko"]) .milestones li { min-height: 166px; padding-right: 24px; }
+  :global(html[lang="ko"]) .milestones p,
+  :global(html[lang="ko"]) .steps p { white-space: pre-line; }
+  :global(html[lang="ko"]) .steps li { min-height: 230px; padding-right: 28px; }
+
+  :global(html[lang="ko"]) .project .sectionHeading { gap: 24px; }
+  :global(html[lang="ko"]) .project .sectionHeading > p { max-width: min(54%, 65ch); color: #526171; line-height: 1.65; }
+
+  :global(html[lang="ko"]) .capabilities .sectionHeading { margin-bottom: 40px; }
+  :global(html[lang="ko"]) .capabilities .sectionHeading h2 { line-height: 1.55; }
+  :global(html[lang="ko"]) .capabilities .eyebrow { margin-bottom: 40px; color: #267881; }
+  :global(html[lang="ko"]) .capabilityRows { gap: 24px; min-height: 372px; }
+  :global(html[lang="ko"]) .capabilityRows li {
+    min-height: 100px;
+    align-self: start;
+    grid-template-columns: 54px minmax(0, 360px) minmax(0, 560px);
+    gap: 24px;
+    padding-block: 26px;
+    border: 0;
+  }
+  :global(html[lang="ko"]) .capabilityRows h3 { font-size: 24px; color: #25313a; font-weight: 500; }
+  :global(html[lang="ko"]) .capabilityRows p { padding: 0; color: #636d77; font-size: 17px; }
+  :global(html[lang="ko"]) .rowIndex { font-size: 13px; color: #25818b; }
 }
 
 @media (prefers-reduced-motion: reduce) {
