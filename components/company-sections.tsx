@@ -89,7 +89,7 @@ function History({ locale }: { locale: Locale }) {
       title: siteLabels[locale].researchTitle,
       description: history[6],
     },
-    { date: '2026.07', title: history[7] },
+    { date: '2026.07', title: history[7], description: history[8] },
   ];
   return (
     <section className={`${styles.section} ${styles.history}`} aria-labelledby="history-title">
@@ -178,8 +178,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
   const footer = getCopy('Footer', locale);
   const labels = getCopy('Header', locale);
   const hoursStart = footer[8].lastIndexOf(' (');
-  const phone = footer[8].slice(0, hoursStart);
-  const hours = footer[8].slice(hoursStart);
+  const phone = hoursStart < 0 ? footer[8] : footer[8].slice(0, hoursStart);
+  const hours = hoursStart < 0 ? '' : footer[8].slice(hoursStart);
   return (
     <footer className={styles.footer}>
       <div className="container">

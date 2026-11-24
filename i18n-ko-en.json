@@ -185,7 +185,7 @@
     { "section": "Footer", "ko": "주소", "en": "Address" },
     { "section": "Footer", "ko": "경기도 성남시 분당구 판교로255번길 9-22, 810호 (삼평동, 판교우림W-CITY)", "en": "#810 Pangyo Woolim W-City, 9-22 Pangyo-ro 255beongil, Bundang, Seongnam, 13487, Korea" },
     { "section": "Footer", "ko": "대표전화", "en": "Tel." },
-    { "section": "Footer", "ko": "031-607-7560 (평일 10:00–17:00)", "en": "(+82) 31-607-7560 (Weekdays 10:00–17:00 KST)" },
+    { "section": "Footer", "ko": "031-607-7560", "en": "(+82) 31-607-7560" },
     { "section": "Footer", "ko": "이메일", "en": "Email" }
   ]
 }
