@@ -134,12 +134,8 @@
 @media (prefers-reduced-motion: no-preference) {
   .connector::after { animation: traverse 2.7s linear infinite; }
   @media (max-width: 767px) { .connector::after { animation-name: traverseVertical; } }
-  @supports (animation-timeline: view()) {
-    .stages article { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
-  }
 }
 @keyframes traverse { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
-@keyframes rise { from { transform: translateY(12px); } to { transform: translateY(0); } }
 @keyframes traverseVertical { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
 
 .heroEyebrow, .heroSignals, .diagramSignals, .ragPanelLabel, .ragPanelSequence { display: none; }
@@ -394,10 +390,6 @@
   :global(html[lang]) .ragPanel[data-entered] { animation: ragEnter .8s .252s ease-out both; --enter-y: 24px; }
   :global(html[lang]) .ragPanel[data-entered] .ragArt img { animation: ragArtEnter 1.6s .45s ease-out both; }
   :global(html[lang]) .ragPanel[data-entered] h3 { animation: ragEnter .7s .678s ease-out both; --enter-y: 12px; }
-  :global(html[lang]) .stages article { animation: none; }
-  :global(html[lang]) .stages[data-entered] article { animation: ragEnter .65s calc(1.152s + var(--stage-delay, 0s)) ease-out both; --enter-y: 16px; }
-  :global(html[lang]) .stages article:nth-child(2) { --stage-delay: .18s; }
-  :global(html[lang]) .stages article:nth-child(3) { --stage-delay: .36s; }
 }
 
 @keyframes ragEnter { from { opacity: 0; transform: translateY(var(--enter-y)); } }

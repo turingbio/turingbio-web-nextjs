@@ -87,7 +87,7 @@ export default function Site({ locale }: { locale: Locale }) {
               <div><p className={styles.ragPanelLabel}>KNOWLEDGE ENGINE</p><h3>{rag[2]}</h3><ul>{rag[3].split('\n').map(item => <li key={item}>{item}</li>)}</ul><p className={styles.ragPanelSequence} aria-hidden="true">{'01  →  02  →  03'}</p></div>
               <div className={styles.ragArt}><Image src="/images/rag-neural.webp" alt="" fill sizes="(max-width: 767px) 100vw, 60vw" /></div>
             </Entrance>
-            <Entrance className={`${styles.three} ${styles.stages}`}><Pairs entries={rag.slice(4)} /></Entrance>
+            <div className={`${styles.three} ${styles.stages}`}><Pairs entries={rag.slice(4)} reveal /></div>
           </div>
         </section>
         <section className={styles.trust} aria-labelledby="trust-title">
