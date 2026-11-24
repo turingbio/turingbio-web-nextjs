@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import content from '@/i18n-ko-en.json';
+import Entrance from './entrance';
 import ProjectHelix from './project-helix';
 import styles from './company-sections.module.css';
 
@@ -101,16 +102,20 @@ function History({ locale }: { locale: Locale }) {
   return (
     <section className={`${styles.section} ${styles.history}`} aria-labelledby="history-title">
       <div className="container">
-        <SectionHeading id="history-title" eyebrow="HISTORY" title={history[0]} body={history[1]} />
-        <ol className={styles.milestones}>
-          {milestones.map(({ date, title, description }) => (
-            <li key={date}>
-              <time dateTime={date.replace('.', '-')}>{date}</time>
-              <h3>{title}</h3>
-              {description && <p>{description}</p>}
-            </li>
-          ))}
-        </ol>
+        <Entrance className={styles.historyHeading}>
+          <SectionHeading id="history-title" eyebrow="HISTORY" title={history[0]} body={history[1]} />
+        </Entrance>
+        <Entrance className={styles.historyTimeline}>
+          <ol className={styles.milestones}>
+            {milestones.map(({ date, title, description }) => (
+              <li key={date}>
+                <time dateTime={date.replace('.', '-')}>{date}</time>
+                <h3>{title}</h3>
+                {description && <p>{description}</p>}
+              </li>
+            ))}
+          </ol>
+        </Entrance>
       </div>
     </section>
   );
@@ -150,10 +155,10 @@ function Project({ locale }: { locale: Locale }) {
     : 'We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation.';
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
-      <div className="container">
+      <Entrance className={`container ${styles.projectEntrance}`}>
         <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
-        <ProjectHelix />
-      </div>
+      </Entrance>
+      <ProjectHelix />
     </section>
   );
 }

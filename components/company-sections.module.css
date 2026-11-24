@@ -154,7 +154,30 @@
   border-radius: 50%;
   content: '';
   background: #2694a4;
-  transition: box-shadow 250ms ease;
+}
+.milestones li:last-child::before { box-shadow: 0 0 0 5px #1694a52c; }
+@media (prefers-reduced-motion: no-preference) {
+  .historyHeading[data-entered],
+  .historyTimeline[data-entered] li {
+    animation: history-enter 640ms cubic-bezier(.22, 1, .36, 1) var(--history-delay, 0ms) both;
+  }
+
+  .historyTimeline li:nth-child(1) { --history-delay: 140ms; }
+  .historyTimeline li:nth-child(2) { --history-delay: 240ms; }
+  .historyTimeline li:nth-child(3) { --history-delay: 340ms; }
+  .historyTimeline li:nth-child(4) { --history-delay: 440ms; }
+  .historyTimeline li:nth-child(5) { --history-delay: 540ms; }
+  .historyTimeline[data-entered] li:last-child::before {
+    animation: current-milestone-glow 1.4s ease-in-out 1.18s infinite;
+  }
+}
+
+@keyframes history-enter {
+  from { opacity: 0; translate: 0 18px; }
+}
+
+@keyframes current-milestone-glow {
+  50% { box-shadow: 0 0 0 7px #1694a54d, 0 0 12px 2px #1694a56b; }
 }
 .milestones time,
 .stepNumber { color: #177b8d; font-variant-numeric: tabular-nums; letter-spacing: 0.025em; }
@@ -167,7 +190,7 @@
 .section[aria-labelledby="method-title"] { background: #fff; }
 .steps li { padding: 0 1.6rem 1.25rem; border-left: 1px solid #d4e2e3; transition: translate 220ms ease-out; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .steps li:hover { translate: 0 -3px; }
+  .steps li:hover { translate: 0 -8px; }
 }
 .steps li:first-child { padding-left: 0; border: 0; }
 .stepNumber { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; }
@@ -202,32 +225,63 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: radial-gradient(ellipse 490px 467px at 83% 51%, #4caba138, transparent), linear-gradient(90deg, #f6f9f8, #f0f6f4 55%, #e3efed);
+  background: radial-gradient(ellipse 34% 95% at 82.64% 50.81%, rgb(76 171 161 / 22%), rgb(128 190 181 / 10%) 45%, rgb(183 216 207 / 0%)), linear-gradient(90deg, #f6f9f8, #f0f6f4 55%, #e3efeb);
 }
 .project .sectionHeading { flex-direction: column; align-items: start; gap: 1.1rem; margin: 0; }
 .project .sectionHeading > p { max-width: min(50%, 52ch); }
 .helix {
   position: absolute;
   z-index: -1;
-  width: min(72.2vw, 1040px);
-  top: 22%;
-  right: -11.8%;
-  rotate: -12deg;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  pointer-events: none;
 }
+.helixLabel {
+  fill: #267881;
+  font: 500 11px "Noto Sans KR", sans-serif;
+  letter-spacing: 1.2px;
+}
+.markerPulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .helix { animation: helix-appear 1.2s ease-out 100ms both; }
-  .helix circle {
-    animation: signal-breathe 7.5s ease-in-out infinite both;
-    animation-delay: calc(var(--phase) - 7.5s);
+  .projectEntrance .eyebrow { --rise: 12px; }
+  .projectEntrance h2 { --delay: 78ms; }
+  .projectEntrance .sectionHeading > p { --delay: 198ms; }
+  .projectEntrance[data-entered] :is(.eyebrow, h2, .sectionHeading > p) {
+    animation:
+      project-fade 528ms ease-out var(--delay, 0ms) both,
+      project-rise 702ms cubic-bezier(.22, 1, .36, 1) var(--delay, 0ms) both;
   }
+  .helixDot {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+      signal-opacity 7.5s ease-in-out var(--fade-phase) infinite,
+      signal-scale 7.5s ease-in-out var(--zoom-phase) infinite,
+      signal-drift 7.5s ease-in-out var(--drift-phase) infinite;
+  }
+  .markerPulse { animation: project-marker-pulse 3.75s ease-out var(--pulse-delay) infinite; }
 }
 
-@keyframes helix-appear { from { opacity: 0; } }
+@keyframes project-fade { from { opacity: 0; } }
+@keyframes project-rise { from { translate: 0 var(--rise, 16px); } }
+@keyframes project-marker-pulse {
+  from { opacity: .75; scale: 1; }
+  37.33%, to { opacity: 0; scale: var(--pulse-scale); }
+}
 
-@keyframes signal-breathe {
-  0%, 100% { opacity: 0.56; }
-  50% { opacity: 0.16; }
+@keyframes signal-opacity {
+  0%, 100% { opacity: var(--fade-first); }
+  50% { opacity: var(--fade-second); }
+}
+@keyframes signal-scale {
+  0%, 100% { scale: var(--zoom-first); }
+  50% { scale: var(--zoom-second); }
+}
+@keyframes signal-drift {
+  0%, 100% { translate: 0 var(--drift-first); }
+  50% { translate: 0 var(--drift-second); }
 }
 
 .capabilities { background: #fdfcfc; }
@@ -265,7 +319,6 @@
 
 @media (hover: hover) {
   .product:hover { translate: 0 -4px; box-shadow: 0 14px 26px rgb(20 52 72 / 18%); }
-  .milestones li:hover::before { box-shadow: 0 0 0 5px #1694a52c; }
   .capabilityRows li:hover .preview { opacity: 1; translate: 0 -50%; }
 }
 
@@ -307,6 +360,7 @@
 .footerBase p { margin: 0; font-family: "Figma Inter", sans-serif; }
 .footerBase nav { display: flex; gap: 12px; }
 .footerBase a { color: #526171; text-decoration: none; }
+.footerBase a[lang="ko"] { font-family: "Noto Sans KR Language Label", "Noto Sans KR", sans-serif; }
 .footerBase a:hover { text-decoration: underline; }
 .footerBase a[aria-current] { color: #152436; font-weight: 500; }
 
@@ -325,7 +379,7 @@
   .steps li,
   .steps li:first-child { padding: 1rem 0; border-left: 0; border-top: 1px solid #d4e2e3; }
   .project .sectionHeading > p { max-width: 32ch; }
-  .helix { width: 130%; top: 22%; right: -57%; opacity: 0.48; }
+  .helix { width: 180%; inset: 15% 0 auto auto; opacity: 0.48; }
   .capabilityRows li { grid-template-columns: 2.3rem minmax(0, 1fr); gap: 0.4rem; padding-block: 1rem; }
   .capabilityRows p { grid-column: 2; padding-right: 0; }
   .preview { display: none; }
@@ -496,7 +550,6 @@
   :global(html[lang="ko"]) .steps h3 { margin: 0; color: #152436; font: 500 26px/31px "Noto Sans KR", sans-serif; letter-spacing: -0.6px; }
   :global(html[lang="ko"]) .steps p { color: #526171; font: 400 16px/26px "Noto Sans KR", sans-serif; }
   :global(html[lang="ko"]) .areaStrip { margin-top: 56px; min-height: 135px; gap: 50px; }
-  :global(html[lang="ko"]) .areas { min-height: 79px; align-items: start; }
   :global(html[lang="ko"]) .areas li { flex-basis: 0; font-size: 16px; letter-spacing: -0.3px; }
 
   :global(html[lang="ko"]) .project .sectionHeading { gap: 24px; }
@@ -552,7 +605,6 @@
   .companyArt img + img,
   .disciplines li,
   .areas li,
-  .milestones li::before,
   .product,
   .steps li,
   .preview { transition: none; }

@@ -215,7 +215,12 @@
     margin-bottom: 25px;
   }
   :global(html[lang="ko"]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 1.4; letter-spacing: -2.36px; color: #f5f9fc; }
-  :global(html[lang="ko"]) .crm .sectionHeading > p { padding-top: 66px; color: #afbfce; font-size: 20px; line-height: 1.4; }
+  :global(html[lang="ko"]) .crm .sectionHeading > p {
+    padding-top: 66px;
+    color: #afbfce;
+    font: 400 20px/28px "Noto Sans KR", sans-serif;
+    letter-spacing: -0.8px;
+  }
   :global(html[lang="ko"]) :is(.crm, .rag) .sectionHeading h2,
   :global(html[lang="ko"]) :is(.crm, .rag) .sectionHeading > p { white-space: pre-line; }
   :global(html[lang="ko"]) .diagram {
