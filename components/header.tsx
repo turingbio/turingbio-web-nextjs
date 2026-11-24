@@ -33,7 +33,7 @@ export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels
     <header className={styles.header} data-scrolled={scrolled}>
       <div className={styles.headerInner}>
         <a href={`/${locale}/`} aria-label="TuringBio">
-          <Image src="/images/turing-logo-transparent.png" alt="TuringBio" width={680} height={140} preload />
+          <Image src="/images/turingbio-logo.webp" alt="TuringBio" width={676} height={132} preload />
         </a>
         <div className={styles.controls}>
           {(['ko', 'en'] as const).map(language => (

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import content from '@/i18n-ko-en.json';
 import ProjectHelix from './project-helix';
 import styles from './company-sections.module.css';
@@ -32,19 +33,21 @@ function SectionHeading({ id, eyebrow, title, body }: {
 
 function Company({ locale }: { locale: Locale }) {
   const [title, body, ...disciplines] = getCopy('Company', locale);
+  const name = "'튜링바이오'";
   return (
     <section id="company" className={styles.company} aria-labelledby="company-title">
       <div className={`container ${styles.companyInner}`}>
         <div className={styles.companyCopy}>
           <SectionHeading id="company-title" eyebrow="" title={title} />
-          <p>{body}</p>
+          <p>{locale === 'ko' && body.startsWith(name) ? <><strong>{name}</strong>{body.slice(name.length)}</> : body}</p>
           <ul className={styles.disciplines}>
             {disciplines.map(label => <li key={label}>{label}</li>)}
           </ul>
         </div>
         <div className={styles.companyArt} aria-hidden="true">
-          <Image src="/images/company-glass.webp" alt="" width={1400} height={933} sizes="(max-width: 760px) 100vw, 46vw" />
-          <Image src="/images/rag-neural.webp" alt="" width={768} height={512} sizes="(max-width: 760px) 100vw, 46vw" />
+          {['default', 'evidence', 'privacy'].map(state => (
+            <Image key={state} src={`/images/company-visual-${state}.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 46vw" />
+          ))}
         </div>
       </div>
     </section>
@@ -68,7 +71,7 @@ function Origin({ locale }: { locale: Locale }) {
               <span className={styles.cardIndex}>{['DIGITAL THERAPEUTICS', 'COUNSELING PLATFORM', 'CONVERSATIONAL AI'][index]}</span>
               <h3>{index === 0 ? 'DTx' : title}</h3>
               {(index === 0 || subtitle) && <p className={styles.productSubtitle}>{index === 0 ? title : subtitle}</p>}
-              <p>{body}</p>
+              <p className={styles.productBody}>{body}</p>
               <ul className={styles.tags}>{tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
             </article>
           ))}
@@ -122,15 +125,19 @@ function Method({ locale }: { locale: Locale }) {
         <ol className={styles.steps}>
           {[2, 4, 6, 8].map((index, step) => (
             <li key={index}>
-              <span className={styles.stepNumber}>0{step + 1}</span>
+              <div className={styles.stepNumber}>0{step + 1}</div>
+              <span className={styles.stepLabel} lang="en">{['DISCOVER', 'DESIGN', 'BUILD', 'OPERATE'][step]}</span>
               <h3>{method[index]}</h3>
               <p>{method[index + 1]}</p>
             </li>
           ))}
         </ol>
-        <ul className={styles.areas}>
-          {method.slice(10).map(label => <li key={label}>{label}</li>)}
-        </ul>
+        <div className={styles.areaStrip}>
+          <span className={styles.stepLabel} lang="en">BUSINESS AREAS</span>
+          <ul className={styles.areas}>
+            {method.slice(10).map(label => <li key={label}>{label}<span aria-hidden="true">→</span></li>)}
+          </ul>
+        </div>
       </div>
     </section>
   );
@@ -182,7 +189,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className={styles.footerGrid}>
           <div>
             <a href={`/${locale}/`} aria-label="TuringBio">
-              <Image src="/images/turing-logo.png" alt="TuringBio" width={680} height={140} />
+              <Image src="/images/turingbio-logo.webp" alt="TuringBio" width={676} height={132} />
             </a>
             <p className={styles.eyebrow}>AI TRANSFORMATION PARTNER</p>
           </div>
@@ -202,7 +209,14 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             </dl>
           </div>
         </div>
-        <p className={styles.copyright}>© 2026 TuringBio, Inc. All rights reserved.</p>
+        <div className={styles.footerBase}>
+          <p>© 2026 TuringBio, Inc. All rights reserved.</p>
+          <nav aria-label={locale === 'ko' ? '언어 선택' : 'Language selection'}>
+            <Link href="/ko/" hrefLang="ko" lang="ko" aria-current={locale === 'ko' ? 'page' : undefined}>한국어</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/en/" hrefLang="en" lang="en" aria-current={locale === 'en' ? 'page' : undefined}>English</Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );
