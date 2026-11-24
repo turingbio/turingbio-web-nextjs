@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import content from '@/i18n-ko-en.json';
+import Entrance from './entrance';
 import ProjectHelix from './project-helix';
 import styles from './company-sections.module.css';
 
@@ -150,10 +151,10 @@ function Project({ locale }: { locale: Locale }) {
     : 'We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation.';
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
-      <div className="container">
+      <Entrance className={`container ${styles.projectEntrance}`}>
         <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
         <ProjectHelix />
-      </div>
+      </Entrance>
     </section>
   );
 }
