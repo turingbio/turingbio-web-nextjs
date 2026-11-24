@@ -8,7 +8,7 @@
 .headerInner nav, .controls { display: flex; align-items: center; gap: clamp(18px, 3vw, 44px); }
 .headerInner nav a { font-size: 14px; font-weight: 650; }
 .headerInner nav a:hover { color: var(--brand-teal); }
-.controls { gap: 13px; font-size: 14px; }
+.controls { order: 1; gap: 13px; font-size: 14px; }
 .controls a:not([aria-current]) { color: var(--muted); }
 .controls a[aria-current] { font-weight: 750; }
 .toggle { display: none; }

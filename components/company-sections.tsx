@@ -85,9 +85,14 @@ function History({ locale }: { locale: Locale }) {
     {
       date: '2024.11',
       title: locale === 'ko' ? 'SaMD GMP 인증' : 'SaMD GMP certification',
+      description: locale === 'ko' ? '의료기기 소프트웨어 품질 체계' : 'Medical device software QMS',
     },
-    { date: '2025.02', title: history[6] },
-    { date: '2026.07', title: history[7], description: history[8] },
+    {
+      date: '2025.02',
+      title: locale === 'ko' ? '글로벌 연구 협약' : 'Global research partnerships',
+      description: history[6],
+    },
+    { date: '2026.07', title: history[7] },
   ];
   return (
     <section className={`${styles.section} ${styles.history}`} aria-labelledby="history-title">
@@ -138,7 +143,7 @@ function Project({ locale }: { locale: Locale }) {
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <div className="container">
-        <SectionHeading id="project-title" eyebrow="IN PROGRESS  /  K-BEAUTY" title={title} body={body} />
+        <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
         <div className={styles.projectSignal} aria-hidden="true">
           <span /><span /><span /><span /><span />
         </div>
@@ -193,7 +198,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               <div><dt>{footer[2]}</dt><dd>{footer[3]}</dd></div>
               <div><dt>{footer[4]}</dt><dd>344-87-01744</dd></div>
               <div><dt>{footer[5]}</dt><dd>{footer[6]}</dd></div>
-              <div><dt>{footer[7]}</dt><dd><a href="tel:+82316077560">{footer[8]}</a></dd></div>
+              <div><dt>{footer[7]}</dt><dd><a href="tel:+82316077560">{footer[8]}</a> <span>{locale === 'ko' ? '(평일 10:00–17:00)' : '(Weekdays 10:00–17:00 KST)'}</span></dd></div>
               <div><dt>{footer[9]}</dt><dd><a href="mailto:info@turingbio.com">info@turingbio.com</a></dd></div>
             </dl>
           </div>

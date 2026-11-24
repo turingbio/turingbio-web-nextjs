@@ -38,7 +38,7 @@
 
 .company {
   padding-block: clamp(64px, 7vw, 102px);
-  background: linear-gradient(112deg, #f1f8f6, #faf7f8 64%, #f5eff7);
+  background: linear-gradient(125deg, #edf7f8, #f6f0f5 87%);
   position: relative;
   isolation: isolate;
 }
@@ -186,6 +186,20 @@
 .projectSignal span:nth-child(2n) { width: 80%; }
 .projectSignal span:nth-child(3n) { width: 63%; }
 
+@media (prefers-reduced-motion: no-preference) {
+  .projectSignal span {
+    animation: signal-breathe 5.6s ease-in-out infinite alternate;
+    animation-delay: calc(var(--signal-phase, 0) * -1s);
+  }
+  .projectSignal span:nth-child(2n) { --signal-phase: 2; }
+  .projectSignal span:nth-child(3n) { --signal-phase: 4; }
+}
+
+@keyframes signal-breathe {
+  from { opacity: 0.4; scale: 0.97 1; }
+  to { opacity: 1; scale: 1 1.08; }
+}
+
 .capabilities { background: #fdfcfc; }
 .capabilityRows li {
   position: relative;
@@ -193,7 +207,7 @@
   grid-template-columns: 3.25rem minmax(170px, 0.7fr) 1.3fr;
   gap: 1rem;
   align-items: center;
-  min-height: 94px;
+  min-height: 124px;
   border-top: 1px solid #e2e4e2;
   transition: background-color 250ms ease;
 }

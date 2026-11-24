@@ -25,15 +25,8 @@ export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <a href={`/${locale}/`} aria-label="TuringBio">
-          <Image src="/images/turing-logo.png" alt="TuringBio" width={174} height={33} priority />
+          <Image src="/images/turing-logo.png" alt="TuringBio" width={680} height={140} preload />
         </a>
-        <nav id="primary-nav" aria-label={ko ? '주 메뉴' : 'Main navigation'} data-open={open}>
-          {anchors.map((anchor, index) => <a key={anchor} href={`#${anchor}`} onClick={() => {
-            if (!open) return;
-            setOpen(false);
-            requestAnimationFrame(() => document.getElementById(`${anchor}-title`)?.focus({ preventScroll: true }));
-          }}>{labels[index]}</a>)}
-        </nav>
         <div className={styles.controls}>
           {(['ko', 'en'] as const).map(language => (
             <a key={language} href={`/${language}/`} hrefLang={language} lang={language}
@@ -50,6 +43,13 @@ export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels
             <span /><span /><span />
           </button>
         </div>
+        <nav id="primary-nav" aria-label={ko ? '주 메뉴' : 'Main navigation'} data-open={open}>
+          {anchors.map((anchor, index) => <a key={anchor} href={`#${anchor}`} onClick={() => {
+            if (!open) return;
+            setOpen(false);
+            requestAnimationFrame(() => document.getElementById(`${anchor}-title`)?.focus({ preventScroll: true }));
+          }}>{labels[index]}</a>)}
+        </nav>
       </div>
     </header>
   );

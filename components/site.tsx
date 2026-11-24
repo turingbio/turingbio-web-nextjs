@@ -44,7 +44,7 @@ export default function Site({ locale }: { locale: Locale }) {
           </div>
           <div className={styles.signal} aria-hidden="true"><i /><i /><i /></div>
           <ul className={styles.signatures} aria-label={locale === 'ko' ? '핵심 기술' : 'Core technologies'}>
-            <li>CRM & DATA</li><li>RAG & GENERATIVE AI</li><li>CUSTOMER OPERATIONS</li>
+            <li>CUSTOMER DATA PLATFORM</li><li>GENERATIVE AI · RAG</li><li>PREDICTIVE ANALYTICS</li><li>CUSTOMER OPERATIONS</li>
           </ul>
         </section>
         <section className={styles.credentials} aria-label={locale === 'ko' ? '주요 이력' : 'Credentials'}>
