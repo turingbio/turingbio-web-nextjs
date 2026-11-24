@@ -496,7 +496,6 @@
   :global(html[lang="ko"]) .steps h3 { margin: 0; color: #152436; font: 500 26px/31px "Noto Sans KR", sans-serif; letter-spacing: -0.6px; }
   :global(html[lang="ko"]) .steps p { color: #526171; font: 400 16px/26px "Noto Sans KR", sans-serif; }
   :global(html[lang="ko"]) .areaStrip { margin-top: 56px; min-height: 135px; gap: 50px; }
-  :global(html[lang="ko"]) .areas { min-height: 79px; align-items: start; }
   :global(html[lang="ko"]) .areas li { flex-basis: 0; font-size: 16px; letter-spacing: -0.3px; }
 
   :global(html[lang="ko"]) .project .sectionHeading { gap: 24px; }
