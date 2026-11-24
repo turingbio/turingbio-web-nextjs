@@ -165,19 +165,56 @@ const dots = [
   [1033.73, 2.536, 207.89, 3378, 0.316, 0],
 ];
 
+const orbits = [
+  { name: 'REJURAN · CRM', label: [784, 260], x: 891.39, y: 288.23, rx: 12.91, ry: 43.02, duration: '4s' },
+  { name: 'PHARMARESEARCH · AX', label: [1076, 124], x: 1213.42, y: 156.42, rx: 31.5, ry: 105, duration: '6s' },
+];
+
 export default function ProjectHelix() {
   return (
-    <svg className={styles.helix} viewBox="0 0 1040 380" aria-hidden="true">
-      {dots.map(([x, diameter, y, phaseMs, opacity, strand], index) => (
-        <circle
-          key={index}
-          cx={x + diameter / 2}
-          cy={y + diameter / 2}
-          r={diameter / 2}
-          fill={strand ? '#1d8791' : '#49aeb2'}
-          style={{ '--phase': `${phaseMs}ms`, opacity } as CSSProperties}
-        />
-      ))}
+    <svg className={styles.helix} viewBox="0 0 1440 492" aria-hidden="true">
+      <defs>
+        <linearGradient id="project-helix-fade">
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset=".2" stopColor="white" />
+          <stop offset=".9" stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity=".7" />
+        </linearGradient>
+        <mask id="project-helix-mask" maskUnits="userSpaceOnUse" x="-24" y="0" width="1064" height="380">
+          <rect x="-24" width="1064" height="380" fill="url(#project-helix-fade)" />
+        </mask>
+      </defs>
+      <g transform="translate(541.86 212.27) rotate(-12)" mask="url(#project-helix-mask)">
+        {dots.map(([x, diameter, y, phaseMs, opacity, strand], index) => (
+          <circle
+            key={index}
+            className={styles.helixDot}
+            cx={x + diameter / 2}
+            cy={y + diameter / 2}
+            r={diameter / 2}
+            fill={strand ? '#4caba1' : '#1b7671'}
+            style={{ '--phase': `${phaseMs}ms`, '--dot-opacity': opacity, opacity } as CSSProperties}
+          />
+        ))}
+      </g>
+      {orbits.map(({ name, label, x, y, rx, ry, duration }) => {
+        const path = `M ${rx} 0 a ${rx} ${ry} 0 1 1 0 ${2 * ry} a ${rx} ${ry} 0 1 1 0 ${-2 * ry}`;
+        return (
+          <g key={name}>
+            <text className={styles.helixLabel} x={label[0]} y={label[1]} dominantBaseline="hanging">{name}</text>
+            <g transform={`translate(${x} ${y}) rotate(-12)`}>
+              <path d={path} fill="none" stroke="#1b7671" strokeOpacity=".32" strokeDasharray="2 5" />
+              <g className={styles.orbitMarker} style={{
+                offsetPath: `path("${path}")`,
+                '--orbit-duration': duration,
+              } as CSSProperties}>
+                <circle r="6" fill="none" stroke="#1b7671" strokeOpacity=".45" />
+                <circle r="3" fill="#1b7671" stroke="#fff" strokeWidth="2" />
+              </g>
+            </g>
+          </g>
+        );
+      })}
     </svg>
   );
 }
