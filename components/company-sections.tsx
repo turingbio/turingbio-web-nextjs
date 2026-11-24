@@ -144,10 +144,10 @@ function Method({ locale }: { locale: Locale }) {
 }
 
 function Project({ locale }: { locale: Locale }) {
-  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의\nCRM·AX 프로젝트.' : 'CRM and AX in global K-beauty.';
+  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의\nCRM·AX를 이끕니다.' : 'Leading CRM and AX for a global K-beauty brand.';
   const body = locale === 'ko'
-    ? 'K-뷰티 브랜드의 고객 데이터를 연결하고 고객 경험 개선을 추진하는 프로젝트입니다.'
-    : 'An initiative to connect customer data and improve the customer experience for a K-beauty brand.';
+    ? 'K-뷰티 대표 브랜드의 고객 데이터 통합과 고객 경험 전환 프로젝트에서\nPMO를 맡아 운영의 전 과정을 이끕니다.'
+    : 'We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation.';
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <div className="container">
@@ -160,7 +160,7 @@ function Project({ locale }: { locale: Locale }) {
 
 function Capabilities({ locale }: { locale: Locale }) {
   const capabilities = getCopy('Capabilities', locale);
-  const previews = ['data', 'prediction', 'operations'];
+  const previews = ['company-visual-evidence', 'capability-visual-prediction', 'company-visual-privacy'];
   return (
     <section id="capabilities" className={`${styles.section} ${styles.capabilities}`} aria-labelledby="capabilities-title">
       <div className="container">
@@ -171,7 +171,7 @@ function Capabilities({ locale }: { locale: Locale }) {
               <span className={styles.rowIndex}>0{index + 1}</span>
               <h3>{capabilities[index * 2 + 1]}</h3>
               <p>{capabilities[index * 2 + 2]}</p>
-              <Image alt="" src={`/images/company-${image}.webp`} width={480} height={480} className={styles.preview} />
+              <Image alt="" src={`/images/${image}.webp`} width={230} height={172} className={styles.preview} />
             </li>
           ))}
         </ol>
@@ -183,6 +183,9 @@ function Capabilities({ locale }: { locale: Locale }) {
 export function SiteFooter({ locale }: { locale: Locale }) {
   const footer = getCopy('Footer', locale);
   const labels = getCopy('Header', locale);
+  const hoursStart = footer[8].lastIndexOf(' (');
+  const phone = footer[8].slice(0, hoursStart);
+  const hours = footer[8].slice(hoursStart);
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -204,7 +207,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               <div><dt>{footer[2]}</dt><dd>{footer[3]}</dd></div>
               <div><dt>{footer[4]}</dt><dd>344-87-01744</dd></div>
               <div><dt>{footer[5]}</dt><dd>{footer[6]}</dd></div>
-              <div><dt>{footer[7]}</dt><dd><a href="tel:+82316077560">{footer[8]}</a> <span>{locale === 'ko' ? '(평일 10:00–17:00)' : '(Weekdays 10:00–17:00 KST)'}</span></dd></div>
+              <div><dt>{footer[7]}</dt><dd><a href="tel:+82316077560">{phone}</a>{hours}</dd></div>
               <div><dt>{footer[9]}</dt><dd><a href="mailto:info@turingbio.com">info@turingbio.com</a></dd></div>
             </dl>
           </div>

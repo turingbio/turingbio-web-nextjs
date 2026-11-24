@@ -78,7 +78,7 @@
     { "section": "Trust", "ko": "답변의 근거와 범위를 정하고,\n불확실하면 상담원에게 연결합니다.", "en": "Answers stay within set evidence and scope; unsure cases go to an agent." },
 
     { "section": "Company", "ko": "멀티모달 AI로,\n고객과 데이터를 읽습니다.", "en": "With multimodal AI,\nwe read customers and data." },
-    { "section": "Company", "ko": "'튜링바이오'는 인공지능 연구의 출발점이 된 앨런 튜링에서 따온 이름입니다.\nAI 기술로 개인 맞춤형 정밀 치료를 통해 더 건강한 사회에 기여하겠다는 사명으로 설립되었습니다. 멀티모달 의료 데이터로 헬스케어 서비스를 개발하며 쌓은 경험과 기술을, \n이제 기업의 고객 데이터와 맞춤 AI 서비스로 넓혀 가고 있습니다.", "en": "'TuringBio' is named after Alan Turing, a founder of AI research. We were founded to build a healthier society through AI-powered, personalized precision care. The experience and technology we gained building healthcare services on multimodal medical data now extend to enterprise customer data and tailored AI services." },
+    { "section": "Company", "ko": "'튜링바이오'는 인공지능 연구의 출발점이 된 앨런 튜링에서 따온 이름입니다.\nAI 기술로 개인 맞춤형 정밀 치료를 통해 더 건강한 사회에 기여하겠다는 사명으로 설립되었습니다.\n멀티모달 의료 데이터로 헬스케어 서비스를 개발하며 쌓은 경험과 기술을,\n이제 기업의 고객 데이터와 맞춤 AI 서비스로 넓혀 가고 있습니다.", "en": "'TuringBio' is named after Alan Turing, a founder of AI research. We were founded to build a healthier society through AI-powered, personalized precision care. The experience and technology we gained building healthcare services on multimodal medical data now extend to enterprise customer data and tailored AI services." },
     { "section": "Company", "ko": "근거 기반 판단", "en": "Evidence-based decisions" },
     { "section": "Company", "ko": "민감 데이터 관리", "en": "Sensitive data management" },
 
