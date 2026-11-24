@@ -6,10 +6,11 @@ import styles from './site.module.css';
 
 const anchors = ['crm', 'company', 'project', 'capabilities'];
 
-export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels: string[] }) {
+export default function Header({ locale, labels, navigationLabel, openLabel, closeLabel }: {
+  locale: 'ko' | 'en'; labels: string[]; navigationLabel: string; openLabel: string; closeLabel: string;
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const ko = locale === 'ko';
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 0);
@@ -46,12 +47,12 @@ export default function Header({ locale, labels }: { locale: 'ko' | 'en'; labels
               }}>{language.toUpperCase()}</a>
           ))}
           <button type="button" id="menu-toggle" aria-expanded={open} aria-controls="primary-nav"
-            aria-label={open ? (ko ? '메뉴 닫기' : 'Close menu') : (ko ? '메뉴 열기' : 'Open menu')}
+            aria-label={open ? closeLabel : openLabel}
             className={styles.toggle} onClick={() => setOpen(!open)}>
             <span /><span /><span />
           </button>
         </div>
-        <nav id="primary-nav" aria-label={ko ? '주 메뉴' : 'Main navigation'} data-open={open}>
+        <nav id="primary-nav" aria-label={navigationLabel} data-open={open}>
           {anchors.map((anchor, index) => <a key={anchor} href={`#${anchor}`} onClick={() => {
             if (!open) return;
             setOpen(false);

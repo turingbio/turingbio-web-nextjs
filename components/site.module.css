@@ -146,7 +146,7 @@
 .hero h1 strong { font-weight: inherit; }
 
 @media (min-width: 1024px) {
-  :global(html[lang="ko"]) .hero {
+  :global(html[lang]) .hero {
     height: 824px;
     min-height: 0;
     display: block;
@@ -155,17 +155,17 @@
     background: radial-gradient(ellipse at 21% -7%, #dfefed 0, transparent 36%),
       radial-gradient(ellipse at 68% -10%, #e9dceb 0, transparent 38%), #fdfcfc;
   }
-  :global(html[lang="ko"]) .heroLines { inset: 0 -1.42%; background-size: 100% 100%; opacity: 1; }
-  :global(html[lang="ko"]) .heroSignals, .diagramSignals {
+  :global(html[lang]) .heroLines { inset: 0 -1.42%; background-size: 100% 100%; opacity: 1; }
+  :global(html[lang]) .heroSignals, .diagramSignals {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
   }
-  :global(html[lang="ko"]) .heroSignals { display: block; z-index: -1; }
-  :global(html[lang="ko"]) .heroCopy { max-width: none; padding-top: 205px; }
-  :global(html[lang="ko"]) .heroCopy > .heroEyebrow {
+  :global(html[lang]) .heroSignals { display: block; z-index: -1; }
+  :global(html[lang]) .heroCopy { max-width: none; padding-top: 205px; }
+  :global(html[lang]) .heroCopy > .heroEyebrow {
     display: block;
     margin: 0 auto 38px;
     color: #087c96;
@@ -174,7 +174,7 @@
     line-height: 1.4;
     letter-spacing: -.52px;
   }
-  :global(html[lang="ko"]) .hero h1 {
+  :global(html[lang]) .hero h1 {
     font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
     font-size: 68px;
     font-weight: 400;
@@ -182,8 +182,8 @@
     letter-spacing: -2.72px;
     color: #8a8b92;
   }
-  :global(html[lang="ko"]) .hero h1 strong { color: #151820; }
-  :global(html[lang="ko"]) .heroCopy > p:not(.heroEyebrow) {
+  :global(html[lang]) .hero h1 strong { color: #151820; }
+  :global(html[lang]) .heroCopy > p:not(.heroEyebrow) {
     max-width: 780px;
     margin-top: 37px;
     color: #536274;
@@ -191,20 +191,20 @@
     letter-spacing: -.88px;
     white-space: pre-line;
   }
-  :global(html[lang="ko"]) .signatures {
+  :global(html[lang]) .signatures {
     inset: 700px 0 auto;
     margin: 0;
     gap: 16px 70px;
     letter-spacing: 2.5px;
   }
-  :global(html[lang="ko"]) .crm { padding: 136px 0 75px; min-height: 1270px; }
-  :global(html[lang="ko"]) .crm .sectionHeading {
+  :global(html[lang]) .crm { padding: 136px 0 75px; min-height: 1270px; }
+  :global(html[lang]) .crm .sectionHeading {
     grid-template-columns: minmax(0, 1fr) minmax(0, 29.73%);
     align-items: start;
     min-height: 264px;
     margin: 0;
   }
-  :global(html[lang="ko"]) .crm .kicker {
+  :global(html[lang]) .crm .kicker {
     color: #54cee3;
     font-size: 13px;
     font-family: "Figma Inter", sans-serif;
@@ -214,39 +214,39 @@
     white-space: pre-wrap;
     margin-bottom: 25px;
   }
-  :global(html[lang="ko"]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 1.4; letter-spacing: -2.36px; color: #f5f9fc; }
-  :global(html[lang="ko"]) .crm .sectionHeading > p {
+  :global(html[lang]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 1.4; letter-spacing: -2.36px; color: #f5f9fc; }
+  :global(html[lang]) .crm .sectionHeading > p {
     padding-top: 66px;
     color: #afbfce;
     font: 400 20px/28px "Noto Sans KR", sans-serif;
     letter-spacing: -0.8px;
   }
-  :global(html[lang="ko"]) :is(.crm, .rag) .sectionHeading h2,
-  :global(html[lang="ko"]) :is(.crm, .rag) .sectionHeading > p { white-space: pre-line; }
-  :global(html[lang="ko"]) .diagram {
+  :global(html[lang]) :is(.crm, .rag) .sectionHeading h2,
+  :global(html[lang]) :is(.crm, .rag) .sectionHeading > p { white-space: pre-line; }
+  :global(html[lang]) .diagram {
     position: relative;
     display: block;
     padding: 0;
     min-height: 0;
     height: 535px;
   }
-  :global(html[lang="ko"]) .diagramSignals {
+  :global(html[lang]) .diagramSignals {
     display: block;
     inset: -1px;
     width: calc(100% + 2px);
     height: calc(100% + 2px);
   }
-  :global(html[lang="ko"]) .connector { display: none; }
-  :global(html[lang="ko"]) .diagram :is(.inputs, .hub, .outputs) { position: absolute; }
-  :global(html[lang="ko"]) .inputs { left: 2.515%; top: 102px; width: 20.122%; gap: 29px; }
-  :global(html[lang="ko"]) .outputs { left: 74.238%; top: 123px; width: 22.942%; gap: 24px; }
-  :global(html[lang="ko"]) .endpoints article {
+  :global(html[lang]) .connector { display: none; }
+  :global(html[lang]) .diagram :is(.inputs, .hub, .outputs) { position: absolute; }
+  :global(html[lang]) .inputs { left: 2.515%; top: 102px; width: 20.122%; gap: 29px; }
+  :global(html[lang]) .outputs { left: 74.238%; top: 123px; width: 22.942%; gap: 24px; }
+  :global(html[lang]) .endpoints article {
     height: 91px;
     padding: 12px 17px;
     box-shadow: 0 5px 18px rgb(41 56 77 / 5%);
   }
-  :global(html[lang="ko"]) .endpoints h3 { font-size: 20px; font-weight: 500; letter-spacing: -.8px; }
-  :global(html[lang="ko"]) .hub {
+  :global(html[lang]) .endpoints h3 { font-size: 20px; font-weight: 500; letter-spacing: -.8px; }
+  :global(html[lang]) .hub {
     left: 38.338%;
     top: 110px;
     width: 27.439%;
@@ -258,36 +258,36 @@
     border-radius: 14px;
     background: rgb(38 120 129 / 20%);
   }
-  :global(html[lang="ko"]) .hub > h3 { border-bottom: 1px solid #cbdce5; font-size: 25px; font-weight: 500; color: #112d43; }
-  :global(html[lang="ko"]) .hub article { transform: translateY(19px); }
-  :global(html[lang="ko"]) .hub article h3 { font-size: 16px; font-weight: 500; color: #28536a; }
-  :global(html[lang="ko"]) .diagram article p { font-size: 15px; line-height: 1.4; letter-spacing: -.6px; }
-  :global(html[lang="ko"]) .hub article p { margin-top: 3px; color: #697f8e; }
-  :global(html[lang="ko"]) .endpoints article p { margin-top: 6px; color: #607080; }
-  :global(html[lang="ko"]) .crm .three { margin-top: 54px; }
-  :global(html[lang="ko"]) .crm .three article { border-color: #3d5369; padding-top: 27px; }
-  :global(html[lang="ko"]) .crm .three h3 {
+  :global(html[lang]) .hub > h3 { border-bottom: 1px solid #cbdce5; font-size: 25px; font-weight: 500; color: #112d43; }
+  :global(html[lang]) .hub article { transform: translateY(19px); }
+  :global(html[lang]) .hub article h3 { font-size: 16px; font-weight: 500; color: #28536a; }
+  :global(html[lang]) .diagram article p { font-size: 15px; line-height: 1.4; letter-spacing: -.6px; }
+  :global(html[lang]) .hub article p { margin-top: 3px; color: #697f8e; }
+  :global(html[lang]) .endpoints article p { margin-top: 6px; color: #607080; }
+  :global(html[lang]) .crm .three { margin-top: 54px; }
+  :global(html[lang]) .crm .three article { border-color: #3d5369; padding-top: 27px; }
+  :global(html[lang]) .crm .three h3 {
     color: #f4f8fc;
     font: 500 27px/1.4 "Noto Sans KR", sans-serif;
     letter-spacing: -1.08px;
   }
-  :global(html[lang="ko"]) .crm .three p {
+  :global(html[lang]) .crm .three p {
     color: #afbfce;
     font: 400 17px/1.4 "Noto Sans KR", sans-serif;
     letter-spacing: -.68px;
     white-space: pre-line;
     margin-top: 18.2px;
   }
-  :global(html[lang="ko"]) .rag { padding-block: 110px; }
-  :global(html[lang="ko"]) .rag .sectionHeading {
+  :global(html[lang]) .rag { padding-block: 110px; }
+  :global(html[lang]) .rag .sectionHeading {
     grid-template-columns: minmax(0, 49.54%) minmax(0, 1fr);
     column-gap: 7.85%;
     row-gap: 48px;
     align-items: start;
     margin-bottom: 48px;
   }
-  :global(html[lang="ko"]) .rag .sectionHeading > div { display: contents; }
-  :global(html[lang="ko"]) .rag .kicker {
+  :global(html[lang]) .rag .sectionHeading > div { display: contents; }
+  :global(html[lang]) .rag .kicker {
     grid-column: 1 / -1;
     margin: 0;
     color: #147b89;
@@ -295,35 +295,35 @@
     letter-spacing: normal;
     white-space: pre-wrap;
   }
-  :global(html[lang="ko"]) .trust .kicker {
+  :global(html[lang]) .trust .kicker {
     color: #54cee3;
     font: 500 12px "Noto Sans KR", sans-serif;
     letter-spacing: 1.2px;
     margin-bottom: 22px;
   }
-  :global(html[lang="ko"]) .trust {
+  :global(html[lang]) .trust {
     padding-block: 120px;
     background: linear-gradient(137.284deg, #0d1620, #1c3149 74.627%);
   }
-  :global(html[lang="ko"]) .trust .sectionHeading {
+  :global(html[lang]) .trust .sectionHeading {
     grid-template-columns: minmax(0, 1fr) minmax(0, 42.68%);
     align-items: end;
     margin-bottom: 56px;
   }
-  :global(html[lang="ko"]) .trust h2 {
+  :global(html[lang]) .trust h2 {
     color: #f5f9fc;
     font: 500 44px/1.45 "Noto Sans KR", sans-serif;
     letter-spacing: -1px;
     white-space: pre-line;
   }
-  :global(html[lang="ko"]) .trust .sectionHeading > p {
+  :global(html[lang]) .trust .sectionHeading > p {
     max-width: none;
     color: #afbfce;
     font: 400 19px/1.6 "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
-  :global(html[lang="ko"]) .trustGrid { gap: 20px; }
-  :global(html[lang="ko"]) .trustGrid article {
+  :global(html[lang]) .trustGrid { gap: 20px; }
+  :global(html[lang]) .trustGrid article {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -334,44 +334,44 @@
     border-radius: 18px;
     background: rgb(255 255 255 / 4%);
   }
-  :global(html[lang="ko"]) .trustGrid h3 { color: #f5f9fc; font: 500 23px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
-  :global(html[lang="ko"]) .trustGrid p {
+  :global(html[lang]) .trustGrid h3 { color: #f5f9fc; font: 500 23px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
+  :global(html[lang]) .trustGrid p {
     margin: 0;
     color: #afbfce;
     font: 400 16px/1.65 "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
-  :global(html[lang="ko"]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 1.4; color: #263744; }
-  :global(html[lang="ko"]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 1.55; }
-  :global(html[lang="ko"]) .ragPanel { grid-template-columns: 38.11% minmax(0, 1fr); }
-  :global(html[lang="ko"]) .ragPanel > div:first-child { padding: 50px 24px 28px 48px; align-self: start; }
-  :global(html[lang="ko"]) .ragPanelLabel { display: block; font: 400 12px/1.55 "Noto Sans KR", sans-serif; color: #74d7db; margin-bottom: 26px; }
-  :global(html[lang="ko"]) .ragPanel h3 {
+  :global(html[lang]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 1.4; color: #263744; }
+  :global(html[lang]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 1.55; }
+  :global(html[lang]) .ragPanel { grid-template-columns: 38.11% minmax(0, 1fr); }
+  :global(html[lang]) .ragPanel > div:first-child { padding: 50px 24px 28px 48px; align-self: start; }
+  :global(html[lang]) .ragPanelLabel { display: block; font: 400 12px/1.55 "Noto Sans KR", sans-serif; color: #74d7db; margin-bottom: 26px; }
+  :global(html[lang]) .ragPanel h3 {
     color: #f4fafc;
     font: 500 34px/1.55 "Noto Sans KR", sans-serif;
     letter-spacing: normal;
     white-space: pre-line;
   }
-  :global(html[lang="ko"]) .ragPanel ul {
+  :global(html[lang]) .ragPanel ul {
     margin-top: 26px;
     color: #b4ced6;
     font: 400 20px/1.55 "Noto Sans KR", sans-serif;
   }
-  :global(html[lang="ko"]) .ragPanelSequence {
+  :global(html[lang]) .ragPanelSequence {
     display: block;
     margin-top: 26px;
     color: #74d7db;
     font: 400 15px/1.55 "Noto Sans KR", sans-serif;
     white-space: pre-wrap;
   }
-  :global(html[lang="ko"]) .stages { gap: clamp(24px, 3.89vw, 56px); }
-  :global(html[lang="ko"]) .stages article { border: 0; padding: 0; }
-  :global(html[lang="ko"]) .stages h3 {
+  :global(html[lang]) .stages { gap: clamp(24px, 3.89vw, 56px); }
+  :global(html[lang]) .stages article { border: 0; padding: 0; }
+  :global(html[lang]) .stages h3 {
     color: #147b89;
     font: 400 13px/1.55 "Noto Sans KR", sans-serif;
     white-space: pre-wrap;
   }
-  :global(html[lang="ko"]) .stages p {
+  :global(html[lang]) .stages p {
     margin-top: 16px;
     color: #657481;
     font: 400 17px/1.55 "Noto Sans KR", sans-serif;
@@ -384,13 +384,13 @@
 }
 
 @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  :global(html[lang="ko"]) .ragPanel[data-entered] { animation: ragEnter .8s .252s ease-out both; --enter-y: 24px; }
-  :global(html[lang="ko"]) .ragPanel[data-entered] .ragArt img { animation: ragArtEnter 1.6s .45s ease-out both; }
-  :global(html[lang="ko"]) .ragPanel[data-entered] h3 { animation: ragEnter .7s .678s ease-out both; --enter-y: 12px; }
-  :global(html[lang="ko"]) .stages article { animation: none; }
-  :global(html[lang="ko"]) .stages[data-entered] article { animation: ragEnter .65s calc(1.152s + var(--stage-delay, 0s)) ease-out both; --enter-y: 16px; }
-  :global(html[lang="ko"]) .stages article:nth-child(2) { --stage-delay: .18s; }
-  :global(html[lang="ko"]) .stages article:nth-child(3) { --stage-delay: .36s; }
+  :global(html[lang]) .ragPanel[data-entered] { animation: ragEnter .8s .252s ease-out both; --enter-y: 24px; }
+  :global(html[lang]) .ragPanel[data-entered] .ragArt img { animation: ragArtEnter 1.6s .45s ease-out both; }
+  :global(html[lang]) .ragPanel[data-entered] h3 { animation: ragEnter .7s .678s ease-out both; --enter-y: 12px; }
+  :global(html[lang]) .stages article { animation: none; }
+  :global(html[lang]) .stages[data-entered] article { animation: ragEnter .65s calc(1.152s + var(--stage-delay, 0s)) ease-out both; --enter-y: 16px; }
+  :global(html[lang]) .stages article:nth-child(2) { --stage-delay: .18s; }
+  :global(html[lang]) .stages article:nth-child(3) { --stage-delay: .36s; }
 }
 
 @keyframes ragEnter { from { opacity: 0; transform: translateY(var(--enter-y)); } }

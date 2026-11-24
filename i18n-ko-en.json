@@ -6,6 +6,48 @@
     "extracted": "2026-11-20"
   },
   "note": "Korean and English desktop copy paired by layer position. Line breaks are the desktop Figma breaks; drop them in implementation and let CSS wrap (Korean: word-break: keep-all). Mobile uses the same copy.",
+  "labels": {
+    "ko": {
+      "heroEmphasis": [
+        "고객 데이터",
+        "생성형 AI",
+        "AX"
+      ],
+      "companyName": "'튜링바이오'",
+      "technologies": "핵심 기술",
+      "credentials": "주요 이력",
+      "menuClose": "메뉴 닫기",
+      "menuOpen": "메뉴 열기",
+      "mainNav": "주 메뉴",
+      "footerNav": "하단 메뉴",
+      "languageNav": "언어 선택",
+      "gmpTitle": "SaMD GMP 인증",
+      "gmpDescription": "의료기기 소프트웨어 품질 체계",
+      "researchTitle": "글로벌 연구 협약",
+      "siteTitle": "튜링바이오",
+      "siteDescription": "튜링바이오의 CRM과 생성형 AI 사업을 소개합니다."
+    },
+    "en": {
+      "heroEmphasis": [
+        "Customer data",
+        "generative AI",
+        "AI transformation"
+      ],
+      "companyName": "'TuringBio'",
+      "technologies": "Core technologies",
+      "credentials": "Credentials",
+      "menuClose": "Close menu",
+      "menuOpen": "Open menu",
+      "mainNav": "Main navigation",
+      "footerNav": "Footer menu",
+      "languageNav": "Language selection",
+      "gmpTitle": "SaMD GMP certification",
+      "gmpDescription": "Medical device software QMS",
+      "researchTitle": "Global research partnerships",
+      "siteTitle": "TuringBio",
+      "siteDescription": "Explore TuringBio’s work in CRM and generative AI."
+    }
+  },
   "rows": [
     { "section": "Header", "ko": "사업 영역", "en": "Business" },
     { "section": "Header", "ko": "회사 소개", "en": "Company" },
@@ -124,8 +166,8 @@
     { "section": "Method", "ko": "생성형 AI·챗봇", "en": "Generative AI · Chatbots" },
     { "section": "Method", "ko": "서비스 운영·CS", "en": "Service operations · CS" },
 
-    { "section": "Project", "ko": "글로벌 K-뷰티 브랜드의\nCRM·AX를 이끕니다.", "en": "Leading CRM and AX\nfor a global K-beauty brand." },
-    { "section": "Project", "ko": "K-뷰티 대표 브랜드의 고객 데이터 통합과 고객 경험 전환 프로젝트에서\nPMO를 맡아 운영의 전 과정을 이끕니다.", "en": "As PMO on a customer data integration and customer experience\ntransformation project for a leading K-beauty brand, we lead the entire operation." },
+    { "section": "Project", "ko": "글로벌 K-뷰티 브랜드의\nCRM·AX를 이끕니다.", "en": "Leading CRM and AX for a global K-beauty brand." },
+    { "section": "Project", "ko": "K-뷰티 대표 브랜드의 고객 데이터 통합과 고객 경험 전환 프로젝트에서\nPMO를 맡아 운영의 전 과정을 이끕니다.", "en": "We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation." },
 
     { "section": "Capabilities", "ko": "연결된 데이터에서,\nAI가 여는 다음 성장까지.", "en": "From connected data\nto the next growth AI unlocks." },
     { "section": "Capabilities", "ko": "데이터와 인사이트", "en": "Data & insights" },

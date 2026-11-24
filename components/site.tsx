@@ -1,14 +1,11 @@
 import Image from 'next/image';
-import content from '@/i18n-ko-en.json';
+import { getCopy, siteLabels, type Locale } from './site-copy';
 import Header from './header';
 import CompanySections, { SiteFooter } from './company-sections';
 import SignalField from './signal-field';
 import Entrance from './entrance';
 import styles from './site.module.css';
 
-type Locale = 'ko' | 'en';
-
-const clean = (value: string) => value.replace(/\s*\n\s*/g, ' ').trim();
 const credentialLabels = ['GROUP', 'VENTURE', 'AI PATENT', 'CERTIFICATION', 'GLOBAL R&D'];
 const trustLabels = ['MINIMIZE', 'ACCESS CONTROL', 'PSEUDONYMIZE', 'GROUNDED AI'];
 
@@ -33,9 +30,14 @@ function SectionHeading({ id, label, title, description }: {
 }
 
 export default function Site({ locale }: { locale: Locale }) {
-  const ko = locale === 'ko';
-  const read = (section: string, withLineBreaks = false) => content.rows.filter(row => row.section === section)
-    .map(row => withLineBreaks && ko ? row.ko.trim() : clean(row[locale]));
+  const labels = siteLabels[locale];
+  const read = (section: string, preserveLineBreaks = false) => getCopy(section, locale, preserveLineBreaks);
+  const emphasize = (line: string) => {
+    const pattern = new RegExp('(' + labels.heroEmphasis.join('|') + ')', 'g');
+    return line.split(pattern).map((part, index) =>
+      index % 2 === 1 ? <strong key={index}>{part}</strong> : part,
+    );
+  };
   const hero = read('Hero', true);
   const crm = read('CRM', true);
   const rag = read('RAG', true);
@@ -43,30 +45,28 @@ export default function Site({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <Header locale={locale} labels={read('Header')} />
+      <Header locale={locale} labels={read('Header')} navigationLabel={labels.mainNav} openLabel={labels.menuOpen} closeLabel={labels.menuClose} />
       <main>
         <section className={styles.hero} aria-labelledby="hero-title">
           <div className={styles.heroLines} aria-hidden="true" />
           <div className={styles.heroCopy}>
-            {ko && <p className={styles.heroEyebrow}>AI TRANSFORMATION PARTNER</p>}
-            <h1 id="hero-title">{ko ? <>
-              <strong>고객 데이터</strong>와 <strong>생성형 AI</strong>로,<br />기업의 <strong>AX</strong>를 완성합니다.
-            </> : <>{hero[0]}<br /><span>{hero[1]}</span></>}</h1>
+            <p className={styles.heroEyebrow}>AI TRANSFORMATION PARTNER</p>
+            <h1 id="hero-title">{emphasize(hero[0])}<br />{emphasize(hero[1])}</h1>
             <p>{hero[2]}</p>
           </div>
-          {ko && <SignalField hero className={styles.heroSignals} />}
-          <ul className={styles.signatures} aria-label={locale === 'ko' ? '핵심 기술' : 'Core technologies'}>
+          <SignalField hero className={styles.heroSignals} />
+          <ul className={styles.signatures} aria-label={labels.technologies}>
             <li>CUSTOMER DATA PLATFORM</li><li>GENERATIVE AI · RAG</li><li>PREDICTIVE ANALYTICS</li><li>CUSTOMER OPERATIONS</li>
           </ul>
         </section>
-        <section className={styles.credentials} aria-label={locale === 'ko' ? '주요 이력' : 'Credentials'}>
+        <section className={styles.credentials} aria-label={labels.credentials}>
           <div className="container"><Pairs entries={read('Credentials')} labels={credentialLabels} /></div>
         </section>
         <section id="crm" className={styles.crm} aria-labelledby="crm-title">
           <div className="container">
-            <SectionHeading id="crm" label={ko ? 'CRM  /  CUSTOMER DATA PLATFORM' : 'CUSTOMER DATA · CRM'} title={crm[0]} description={crm[1]} />
+            <SectionHeading id="crm" label="CRM  /  CUSTOMER DATA PLATFORM" title={crm[0]} description={crm[1]} />
             <div className={styles.diagram}>
-              {ko && <SignalField className={styles.diagramSignals} />}
+              <SignalField className={styles.diagramSignals} />
               <div className={`${styles.endpoints} ${styles.inputs}`}><Pairs entries={crm.slice(2, 8)} /></div>
               <div className={styles.connector} aria-hidden="true" />
               <div className={styles.hub}>
@@ -81,9 +81,9 @@ export default function Site({ locale }: { locale: Locale }) {
         </section>
         <section id="rag" className={styles.rag} aria-labelledby="rag-title">
           <div className="container">
-            <SectionHeading id="rag" label={ko ? 'GENERATIVE AI  /  RAG' : 'GENERATIVE AI · RAG'} title={rag[0]} description={rag[1]} />
+            <SectionHeading id="rag" label="GENERATIVE AI  /  RAG" title={rag[0]} description={rag[1]} />
             <Entrance className={styles.ragPanel}>
-              <div>{ko && <p className={styles.ragPanelLabel}>KNOWLEDGE ENGINE</p>}<h3>{rag[2]}</h3><ul>{content.rows.filter(row => row.section === 'RAG')[3][locale].split('\n').map(item => <li key={item}>{item}</li>)}</ul>{ko && <p className={styles.ragPanelSequence} aria-hidden="true">{'01  →  02  →  03'}</p>}</div>
+              <div><p className={styles.ragPanelLabel}>KNOWLEDGE ENGINE</p><h3>{rag[2]}</h3><ul>{rag[3].split('\n').map(item => <li key={item}>{item}</li>)}</ul><p className={styles.ragPanelSequence} aria-hidden="true">{'01  →  02  →  03'}</p></div>
               <div className={styles.ragArt}><Image src="/images/rag-neural.webp" alt="" fill sizes="(max-width: 767px) 100vw, 60vw" /></div>
             </Entrance>
             <Entrance className={`${styles.three} ${styles.stages}`}><Pairs entries={rag.slice(4)} /></Entrance>
@@ -91,13 +91,13 @@ export default function Site({ locale }: { locale: Locale }) {
         </section>
         <section className={styles.trust} aria-labelledby="trust-title">
           <div className="container">
-            <SectionHeading id="trust" label={ko ? 'TRUST & SECURITY' : 'DATA SECURITY PRINCIPLES'} title={trust[0]} description={trust[1]} />
+            <SectionHeading id="trust" label="TRUST & SECURITY" title={trust[0]} description={trust[1]} />
             <div className={styles.trustGrid}>
               {trustLabels.map((label, index) => (
                 <article key={label}>
-                  {ko && <div className={styles.trustMeta} aria-hidden="true">
+                  <div className={styles.trustMeta} aria-hidden="true">
                     <span>{`0${index + 1}`}</span><span>{label}</span>
-                  </div>}
+                  </div>
                   <h3>{trust[2 + index * 2]}</h3>
                   <p>{trust[3 + index * 2]}</p>
                 </article>

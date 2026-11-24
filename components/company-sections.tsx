@@ -1,19 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import content from '@/i18n-ko-en.json';
+import { getCopy, siteLabels, type Locale } from './site-copy';
 import Entrance from './entrance';
 import ProjectHelix from './project-helix';
 import styles from './company-sections.module.css';
 
-type Locale = 'ko' | 'en';
-
 const links = ['crm', 'company', 'project', 'capabilities'];
-
-function getCopy(section: string, locale: Locale) {
-  return content.rows
-    .filter(row => row.section === section)
-    .map(row => locale === 'ko' ? row.ko : row.en.replace(/\s*\n\s*/g, ' '));
-}
 
 function SectionHeading({ id, eyebrow, title, body }: {
   id: string;
@@ -33,14 +25,14 @@ function SectionHeading({ id, eyebrow, title, body }: {
 }
 
 function Company({ locale }: { locale: Locale }) {
-  const [title, body, ...disciplines] = getCopy('Company', locale);
-  const name = "'튜링바이오'";
+  const [title, body, ...disciplines] = getCopy('Company', locale, true);
+  const name = siteLabels[locale].companyName;
   return (
     <section id="company" className={styles.company} aria-labelledby="company-title">
       <div className={`container ${styles.companyInner}`}>
         <div className={styles.companyCopy}>
           <SectionHeading id="company-title" eyebrow="" title={title} />
-          <p>{locale === 'ko' && body.startsWith(name) ? <><strong>{name}</strong>{body.slice(name.length)}</> : body}</p>
+          <p>{body.startsWith(name) ? <><strong>{name}</strong>{body.slice(name.length)}</> : body}</p>
           <ul className={styles.disciplines}>
             {disciplines.map(label => <li key={label}>{label}</li>)}
           </ul>
@@ -56,7 +48,7 @@ function Company({ locale }: { locale: Locale }) {
 }
 
 function Origin({ locale }: { locale: Locale }) {
-  const origin = getCopy('Origin', locale);
+  const origin = getCopy('Origin', locale, true);
   const products = [
     { title: origin[2], subtitle: '', body: origin[3], tags: origin.slice(4, 6) },
     { title: origin[6], subtitle: origin[7], body: origin[8], tags: origin.slice(9, 11) },
@@ -83,18 +75,18 @@ function Origin({ locale }: { locale: Locale }) {
 }
 
 function History({ locale }: { locale: Locale }) {
-  const history = getCopy('History', locale);
+  const history = getCopy('History', locale, true);
   const milestones = [
     { date: '2024.07', title: history[2], description: history[3] },
     { date: '2024.09', title: history[4], description: history[5] },
     {
       date: '2024.11',
-      title: locale === 'ko' ? 'SaMD GMP 인증' : 'SaMD GMP certification',
-      description: locale === 'ko' ? '의료기기 소프트웨어 품질 체계' : 'Medical device software QMS',
+      title: siteLabels[locale].gmpTitle,
+      description: siteLabels[locale].gmpDescription,
     },
     {
       date: '2025.02',
-      title: locale === 'ko' ? '글로벌 연구 협약' : 'Global research partnerships',
+      title: siteLabels[locale].researchTitle,
       description: history[6],
     },
     { date: '2026.07', title: history[7] },
@@ -122,7 +114,7 @@ function History({ locale }: { locale: Locale }) {
 }
 
 function Method({ locale }: { locale: Locale }) {
-  const method = getCopy('Method', locale);
+  const method = getCopy('Method', locale, true);
   return (
     <section className={styles.section} aria-labelledby="method-title">
       <div className="container">
@@ -149,10 +141,7 @@ function Method({ locale }: { locale: Locale }) {
 }
 
 function Project({ locale }: { locale: Locale }) {
-  const title = locale === 'ko' ? '글로벌 K-뷰티 브랜드의\nCRM·AX를 이끕니다.' : 'Leading CRM and AX for a global K-beauty brand.';
-  const body = locale === 'ko'
-    ? 'K-뷰티 대표 브랜드의 고객 데이터 통합과 고객 경험 전환 프로젝트에서\nPMO를 맡아 운영의 전 과정을 이끕니다.'
-    : 'We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation.';
+  const [title, body] = getCopy('Project', locale, true);
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <Entrance className={`container ${styles.projectEntrance}`}>
@@ -164,7 +153,7 @@ function Project({ locale }: { locale: Locale }) {
 }
 
 function Capabilities({ locale }: { locale: Locale }) {
-  const capabilities = getCopy('Capabilities', locale);
+  const capabilities = getCopy('Capabilities', locale, true);
   const previews = ['company-visual-evidence', 'capability-visual-prediction', 'company-visual-privacy'];
   return (
     <section id="capabilities" className={`${styles.section} ${styles.capabilities}`} aria-labelledby="capabilities-title">
@@ -201,7 +190,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             </a>
             <p className={styles.eyebrow}>AI TRANSFORMATION PARTNER</p>
           </div>
-          <nav aria-label={locale === 'ko' ? '하단 메뉴' : 'Footer menu'}>
+          <nav aria-label={siteLabels[locale].footerNav}>
             <h2>MENU</h2>
             <ul>{links.map((id, index) => <li key={id}><a href={`#${id}`}>{labels[index]}</a></li>)}</ul>
           </nav>
@@ -219,7 +208,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </div>
         <div className={styles.footerBase}>
           <p>© 2026 TuringBio, Inc. All rights reserved.</p>
-          <nav aria-label={locale === 'ko' ? '언어 선택' : 'Language selection'}>
+          <nav aria-label={siteLabels[locale].languageNav}>
             <Link href="/ko/" hrefLang="ko" lang="ko" aria-current={locale === 'ko' ? 'page' : undefined}>한국어</Link>
             <span aria-hidden="true">/</span>
             <Link href="/en/" hrefLang="en" lang="en" aria-current={locale === 'en' ? 'page' : undefined}>English</Link>

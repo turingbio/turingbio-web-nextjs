@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Site from '@/components/site';
+import { siteLabels } from '@/components/site-copy';
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
@@ -10,11 +11,9 @@ export async function generateMetadata({
   params,
 }: LocalePageProps): Promise<Metadata> {
   const { locale } = await params;
+  if (locale !== 'ko' && locale !== 'en') notFound();
+  const { siteTitle: title, siteDescription: description } = siteLabels[locale];
   const ko = locale === 'ko';
-  const title = ko ? '튜링바이오' : 'TuringBio';
-  const description = ko
-    ? '튜링바이오의 CRM과 생성형 AI 사업을 소개합니다.'
-    : 'Explore TuringBio’s work in CRM and generative AI.';
   const url = `/${locale}/`;
 
   return {
