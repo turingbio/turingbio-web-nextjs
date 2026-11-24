@@ -7,14 +7,15 @@ import styles from './company-sections.module.css';
 
 const links = ['crm', 'company', 'project', 'capabilities'];
 
-function SectionHeading({ id, eyebrow, title, body }: {
+function SectionHeading({ id, eyebrow, title, body, reveal = true }: {
   id: string;
   eyebrow: string;
   title: string;
   body?: string;
+  reveal?: boolean;
 }) {
   return (
-    <div className={styles.sectionHeading}>
+    <div className={styles.sectionHeading} data-reveal={reveal ? '' : undefined}>
       <div>
         <p className={styles.eyebrow} hidden={!eyebrow}>{eyebrow}</p>
         <h2 id={id} tabIndex={-1}>{title}</h2>
@@ -34,10 +35,10 @@ function Company({ locale }: { locale: Locale }) {
           <SectionHeading id="company-title" eyebrow="" title={title} />
           <p>{body.startsWith(name) ? <><strong>{name}</strong>{body.slice(name.length)}</> : body}</p>
           <ul className={styles.disciplines}>
-            {disciplines.map(label => <li key={label}>{label}</li>)}
+            {disciplines.map(label => <li key={label} data-reveal="">{label}</li>)}
           </ul>
         </div>
-        <div className={styles.companyArt} aria-hidden="true">
+        <div className={styles.companyArt} aria-hidden="true" data-reveal="">
           {['default', 'evidence', 'privacy'].map(state => (
             <Image key={state} src={`/images/company-visual-${state}.webp`} alt="" fill sizes="(max-width: 760px) 100vw, 46vw" />
           ))}
@@ -60,7 +61,7 @@ function Origin({ locale }: { locale: Locale }) {
         <SectionHeading id="origin-title" eyebrow="ORIGIN TECHNOLOGY" title={origin[0]} body={origin[1]} />
         <div className={styles.products}>
           {products.map(({ title, subtitle, body, tags }, index) => (
-            <article className={styles.product} key={title}>
+            <article className={styles.product} key={title} data-reveal="">
               <span className={styles.cardIndex}>{['DIGITAL THERAPEUTICS', 'COUNSELING PLATFORM', 'CONVERSATIONAL AI'][index]}</span>
               <h3>{index === 0 ? 'DTx' : title}</h3>
               {(index === 0 || subtitle) && <p className={styles.productSubtitle}>{index === 0 ? title : subtitle}</p>}
@@ -95,7 +96,7 @@ function History({ locale }: { locale: Locale }) {
     <section className={`${styles.section} ${styles.history}`} aria-labelledby="history-title">
       <div className="container">
         <Entrance className={styles.historyHeading}>
-          <SectionHeading id="history-title" eyebrow="HISTORY" title={history[0]} body={history[1]} />
+          <SectionHeading id="history-title" eyebrow="HISTORY" title={history[0]} body={history[1]} reveal={false} />
         </Entrance>
         <Entrance className={styles.historyTimeline}>
           <ol className={styles.milestones}>
@@ -121,7 +122,7 @@ function Method({ locale }: { locale: Locale }) {
         <SectionHeading id="method-title" eyebrow="HOW WE WORK" title={method[0]} body={method[1]} />
         <ol className={styles.steps}>
           {[2, 4, 6, 8].map((index, step) => (
-            <li key={index}>
+            <li key={index} data-reveal="">
               <div className={styles.stepNumber}>0{step + 1}</div>
               <span className={styles.stepLabel} lang="en">{['DISCOVER', 'DESIGN', 'BUILD', 'OPERATE'][step]}</span>
               <h3>{method[index]}</h3>
@@ -129,7 +130,7 @@ function Method({ locale }: { locale: Locale }) {
             </li>
           ))}
         </ol>
-        <div className={styles.areaStrip}>
+        <div className={styles.areaStrip} data-reveal="">
           <span className={styles.stepLabel} lang="en">BUSINESS AREAS</span>
           <ul className={styles.areas}>
             {method.slice(10).map(label => <li key={label}>{label}<span aria-hidden="true">→</span></li>)}
@@ -145,7 +146,7 @@ function Project({ locale }: { locale: Locale }) {
   return (
     <section id="project" className={`${styles.section} ${styles.project}`} aria-labelledby="project-title">
       <Entrance className={`container ${styles.projectEntrance}`}>
-        <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} />
+        <SectionHeading id="project-title" eyebrow="FLAGSHIP PROJECT  /  K-BEAUTY AX" title={title} body={body} reveal={false} />
       </Entrance>
       <ProjectHelix />
     </section>
@@ -161,7 +162,7 @@ function Capabilities({ locale }: { locale: Locale }) {
         <SectionHeading id="capabilities-title" eyebrow="WHAT WE BUILD NEXT" title={capabilities[0]} />
         <ol className={styles.capabilityRows}>
           {previews.map((image, index) => (
-            <li key={image}>
+            <li key={image} data-reveal="">
               <span className={styles.rowIndex}>0{index + 1}</span>
               <h3>{capabilities[index * 2 + 1]}</h3>
               <p>{capabilities[index * 2 + 2]}</p>

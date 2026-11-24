@@ -4,14 +4,15 @@ import Header from './header';
 import CompanySections, { SiteFooter } from './company-sections';
 import SignalField from './signal-field';
 import Entrance from './entrance';
+import Reveal from './reveal';
 import styles from './site.module.css';
 
 const credentialLabels = ['GROUP', 'VENTURE', 'AI PATENT', 'CERTIFICATION', 'GLOBAL R&D'];
 const trustLabels = ['MINIMIZE', 'ACCESS CONTROL', 'PSEUDONYMIZE', 'GROUNDED AI'];
 
-function Pairs({ entries, labels }: { entries: string[]; labels?: string[] }) {
+function Pairs({ entries, labels, reveal }: { entries: string[]; labels?: string[]; reveal?: boolean }) {
   return entries.filter((_, index) => index % 2 === 0).map((title, index) => (
-    <article key={title}>
+    <article key={title} data-reveal={reveal ? '' : undefined}>
       {labels && <p className={styles.credentialLabel}>{labels[index]}</p>}
       <h3>{title}</h3><p>{entries[index * 2 + 1]}</p>
     </article>
@@ -22,7 +23,7 @@ function SectionHeading({ id, label, title, description }: {
   id: string; label: string; title: string; description: string;
 }) {
   return (
-    <div className={styles.sectionHeading}>
+    <div className={styles.sectionHeading} data-reveal="">
       <div><p className={styles.kicker}>{label}</p><h2 id={id + '-title'} tabIndex={-1}>{title}</h2></div>
       <p>{description}</p>
     </div>
@@ -60,23 +61,23 @@ export default function Site({ locale }: { locale: Locale }) {
           </ul>
         </section>
         <section className={styles.credentials} aria-label={labels.credentials}>
-          <div className="container"><Pairs entries={read('Credentials')} labels={credentialLabels} /></div>
+          <div className="container"><Pairs entries={read('Credentials')} labels={credentialLabels} reveal /></div>
         </section>
         <section id="crm" className={styles.crm} aria-labelledby="crm-title">
           <div className="container">
             <SectionHeading id="crm" label="CRM  /  CUSTOMER DATA PLATFORM" title={crm[0]} description={crm[1]} />
             <div className={styles.diagram}>
               <SignalField className={styles.diagramSignals} />
-              <div className={`${styles.endpoints} ${styles.inputs}`}><Pairs entries={crm.slice(2, 8)} /></div>
+              <div className={`${styles.endpoints} ${styles.inputs}`} data-reveal=""><Pairs entries={crm.slice(2, 8)} /></div>
               <div className={styles.connector} aria-hidden="true" />
-              <div className={styles.hub}>
+              <div className={styles.hub} data-reveal="">
                 <h3>{crm[8]}</h3>
                 <Pairs entries={crm.slice(9, 15)} />
               </div>
               <div className={styles.connector} aria-hidden="true" />
-              <div className={`${styles.endpoints} ${styles.outputs}`}><Pairs entries={crm.slice(15, 21)} /></div>
+              <div className={`${styles.endpoints} ${styles.outputs}`} data-reveal=""><Pairs entries={crm.slice(15, 21)} /></div>
             </div>
-            <div className={styles.three}><Pairs entries={crm.slice(21)} /></div>
+            <div className={styles.three}><Pairs entries={crm.slice(21)} reveal /></div>
           </div>
         </section>
         <section id="rag" className={styles.rag} aria-labelledby="rag-title">
@@ -94,7 +95,7 @@ export default function Site({ locale }: { locale: Locale }) {
             <SectionHeading id="trust" label="TRUST & SECURITY" title={trust[0]} description={trust[1]} />
             <div className={styles.trustGrid}>
               {trustLabels.map((label, index) => (
-                <article key={label}>
+                <article key={label} data-reveal="">
                   <div className={styles.trustMeta} aria-hidden="true">
                     <span>{`0${index + 1}`}</span><span>{label}</span>
                   </div>
@@ -108,6 +109,7 @@ export default function Site({ locale }: { locale: Locale }) {
         <CompanySections locale={locale} />
       </main>
       <SiteFooter locale={locale} />
+      <Reveal />
     </>
   );
 }
