@@ -8,7 +8,7 @@ import Reveal from './reveal';
 import styles from './site.module.css';
 
 const credentialLabels = ['GROUP', 'VENTURE', 'AI PATENT', 'CERTIFICATION', 'GLOBAL R&D'];
-const trustLabels = ['MINIMIZE', 'ACCESS CONTROL', 'PSEUDONYMIZE', 'GROUNDED AI'];
+const governanceLabels = ['DATA PRIVACY', 'LEAST PRIVILEGE', 'HUMAN-IN-THE-LOOP', 'AUDIT TRAIL'];
 
 function Pairs({ entries, labels, reveal }: { entries: string[]; labels?: string[]; reveal?: boolean }) {
   return entries.filter((_, index) => index % 2 === 0).map((title, index) => (
@@ -42,7 +42,7 @@ export default function Site({ locale }: { locale: Locale }) {
   const hero = read('Hero', true);
   const crm = read('CRM', true);
   const rag = read('RAG', true);
-  const trust = read('Trust', true);
+  const governance = read('Governance', true);
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function Site({ locale }: { locale: Locale }) {
           </div>
           <SignalField hero className={styles.heroSignals} />
           <ul className={styles.signatures} aria-label={labels.technologies}>
-            <li>CUSTOMER DATA PLATFORM</li><li>GENERATIVE AI · RAG</li><li>PREDICTIVE ANALYTICS</li><li>CUSTOMER OPERATIONS</li>
+            {labels.heroSignatures.map(item => <li key={item}>{item}</li>)}
           </ul>
         </section>
         <section className={styles.credentials} aria-label={labels.credentials}>
@@ -90,17 +90,17 @@ export default function Site({ locale }: { locale: Locale }) {
             <div className={`${styles.three} ${styles.stages}`}><Pairs entries={rag.slice(4)} reveal /></div>
           </div>
         </section>
-        <section className={styles.trust} aria-labelledby="trust-title">
+        <section className={styles.governance} aria-labelledby="governance-title">
           <div className="container">
-            <SectionHeading id="trust" label="TRUST & SECURITY" title={trust[0]} description={trust[1]} />
-            <div className={styles.trustGrid}>
-              {trustLabels.map((label, index) => (
+            <SectionHeading id="governance" label="AI GOVERNANCE & SECURITY" title={governance[0]} description={governance[1]} />
+            <div className={styles.governanceGrid}>
+              {governanceLabels.map((label, index) => (
                 <article key={label} data-reveal="">
-                  <div className={styles.trustMeta} aria-hidden="true">
+                  <div className={styles.governanceMeta} aria-hidden="true">
                     <span>{`0${index + 1}`}</span><span>{label}</span>
                   </div>
-                  <h3>{trust[2 + index * 2]}</h3>
-                  <p>{trust[3 + index * 2]}</p>
+                  <h3>{governance[2 + index * 2]}</h3>
+                  <p>{governance[3 + index * 2]}</p>
                 </article>
               ))}
             </div>

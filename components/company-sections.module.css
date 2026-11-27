@@ -591,7 +591,7 @@
     letter-spacing: 1.44px;
   }
   .footerGrid { grid-template-columns: 1fr max-content minmax(0, 555px); gap: clamp(48px, 7.78vw, 112px); }
-  .footerGrid nav { align-self: start; font-size: 14px; color: #33424f; }
+  .footerGrid nav { align-self: start; font-size: 13px; color: #33424f; }
   .footerGrid h2 { margin-bottom: 22px; }
   .footerGrid li { margin-bottom: 10px; line-height: 22px; }
   .footerGrid li:last-child { margin-bottom: 0; }

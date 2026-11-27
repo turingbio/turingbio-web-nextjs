@@ -18,7 +18,7 @@
     background-image: linear-gradient(100deg, #eaf8f9, #e5f7f7 8%, #f4fbfb 43%, #fefefe 51%, #f8f3f8 69%, #f8f2f7 84%, #fefdfd);
   }
   .headerInner { position: relative; justify-content: flex-start; }
-  .headerInner img { width: 190px; height: 37.05px; margin-bottom: 2px; }
+  .headerInner img { width: 152px; height: 29.64px; margin-bottom: 2px; }
   .headerInner nav {
     position: absolute;
     right: 12.8%;
@@ -72,15 +72,15 @@
   .credentials p { color: #73808d; font-size: 14px; line-height: 1.5; margin: 0; }
   .credentials .credentialLabel { line-height: 13px; }
 }
-.crm, .rag, .trust { padding-block: clamp(64px, 8vw, 115px); }
+.crm, .rag, .governance { padding-block: clamp(64px, 8vw, 115px); }
 .crm { color: #f7fafb; background: linear-gradient(113deg, #131820, #283c57); }
 .rag { background: #f8f7f5; }
-.trust { color: white; background: linear-gradient(137deg,#0d1620,#1c3149); }
+.governance { color: white; background: linear-gradient(137deg,#0d1620,#1c3149); }
 .sectionHeading { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 35px; align-items: end; margin-bottom: clamp(35px, 6vw, 80px); }
 .sectionHeading > p { max-width: 410px; color: var(--muted); }
-.crm .sectionHeading > p,.trust .sectionHeading > p { color: #c4d0de; }
+.crm .sectionHeading > p,.governance .sectionHeading > p { color: #c4d0de; }
 .kicker { margin-bottom: 18px; font-size: .72rem; letter-spacing: .16em; font-weight: 650; color: var(--brand-teal); }
-.crm .kicker,.trust .kicker { color: #81d8df; }
+.crm .kicker,.governance .kicker { color: #81d8df; }
 .diagram {
   min-height: 490px; display: grid; align-items: center;
   grid-template-columns: minmax(0, 1fr) minmax(16px, .28fr) minmax(0, 1.25fr) minmax(16px, .28fr) minmax(0, 1fr);
@@ -95,10 +95,10 @@
 .hub > h3 { font-size: 1.3rem; }
 .connector { height: 2px; overflow: hidden; background: #80afc4; }
 .connector::after { content: ''; display: block; height: 100%; background: linear-gradient(90deg,transparent,#0ba4c0,transparent); }
-.three, .trustGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; margin-top: 48px; }
+.three, .governanceGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; margin-top: 48px; }
 .three article { border-top: 1px solid #849aa06b; padding-top: 20px; }
-.three p, .trustGrid p { margin-top: 8px; font-size: .94rem; }
-.crm .three p,.trustGrid p { color: #c7d5df; }
+.three p, .governanceGrid p { margin-top: 8px; font-size: .94rem; }
+.crm .three p,.governanceGrid p { color: #c7d5df; }
 .ragPanel { display: grid; grid-template-columns: .8fr 1.2fr; color: #edf9ff; background: #071b2b; min-height: 500px; overflow: hidden; border-radius: 24px; }
 .ragPanel > div:first-child { padding: clamp(28px, 5vw, 68px); align-self: center; }
 .ragPanel h3 { font-size: clamp(1.7rem, 3.7vw, 3.2rem); letter-spacing: -.06em; }
@@ -106,10 +106,10 @@
 .ragArt { position: relative; min-height: 260px; }
 .ragArt img { object-fit: cover; }
 .stages h3 { color: #087b86; }
-.trustGrid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin-top: 0; }
-.trustGrid article { padding: 23px; background: #ffffff0a; border: 1px solid #ffffff16; border-radius: 10px; }
-.trustMeta { display: flex; align-items: center; gap: 10px; color: #7f9bb0; font: 500 11px "Figma Inter", sans-serif; letter-spacing: 1.8px; }
-.trustMeta span:first-child { color: #54cee3; font-size: 13px; font-weight: 600; letter-spacing: normal; }
+.governanceGrid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin-top: 0; }
+.governanceGrid article { padding: 23px; background: #ffffff0a; border: 1px solid #ffffff16; border-radius: 10px; }
+.governanceMeta { display: flex; align-items: center; gap: 10px; color: #7f9bb0; font: 500 11px "Figma Inter", sans-serif; letter-spacing: 1.8px; }
+.governanceMeta span:first-child { color: #54cee3; font-size: 13px; font-weight: 600; letter-spacing: normal; }
 @media (max-width: 767px) {
   .headerInner img { width: 118px; }
   .headerInner nav { position: absolute; inset: 100% 0 auto; align-items: stretch; flex-direction: column; gap: 0; padding: 44px 24px 28px; background: #fff; height: calc(100dvh - var(--header-height)); overflow: auto; }
@@ -123,7 +123,7 @@
   .hero { min-height: 620px; padding-bottom: 140px; }
   .hero h1 { font-size: clamp(2rem, 8vw, 3.6rem); }
   .heroLines { background-size: auto 100%; }
-  .credentials > div, .sectionHeading, .three, .trustGrid, .ragPanel, .diagram { grid-template-columns: minmax(0, 1fr); }
+  .credentials > div, .sectionHeading, .three, .governanceGrid, .ragPanel, .diagram { grid-template-columns: minmax(0, 1fr); }
   .credentials > div { gap: 15px; }
   .sectionHeading { gap: 18px; }
   .diagram { gap: 10px; }
@@ -215,7 +215,7 @@
     white-space: pre-wrap;
     margin-bottom: 25px;
   }
-  :global(html[lang]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 83px; letter-spacing: -2.36px; color: #f5f9fc; }
+  :global(html[lang]) .crm h2 { font-size: 59px; font-weight: 500; line-height: 1.2; letter-spacing: -2.36px; color: #f5f9fc; }
   :global(html[lang]) .crm .sectionHeading > p {
     padding-top: 66px;
     color: #afbfce;
@@ -298,35 +298,35 @@
     letter-spacing: normal;
     white-space: pre-wrap;
   }
-  :global(html[lang]) .trust .kicker {
+  :global(html[lang]) .governance .kicker {
     color: #54cee3;
     font: 500 12px/14px "Noto Sans KR", sans-serif;
     letter-spacing: 1.2px;
     margin-bottom: 22px;
   }
-  :global(html[lang]) .trust {
+  :global(html[lang]) .governance {
     padding-block: 120px;
     background: linear-gradient(137.284deg, #0d1620, #1c3149 74.627%);
   }
-  :global(html[lang]) .trust .sectionHeading {
+  :global(html[lang]) .governance .sectionHeading {
     grid-template-columns: minmax(0, 1fr) minmax(0, 42.68%);
     align-items: end;
     margin-bottom: 56px;
   }
-  :global(html[lang]) .trust h2 {
+  :global(html[lang]) .governance h2 {
     color: #f5f9fc;
-    font: 500 44px/64px "Noto Sans KR", sans-serif;
+    font: 500 44px/1.2 "Noto Sans KR", sans-serif;
     letter-spacing: -1px;
     white-space: pre-line;
   }
-  :global(html[lang]) .trust .sectionHeading > p {
+  :global(html[lang]) .governance .sectionHeading > p {
     max-width: none;
     color: #afbfce;
     font: 400 19px/30px "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
-  :global(html[lang]) .trustGrid { gap: 20px; }
-  :global(html[lang]) .trustGrid article {
+  :global(html[lang]) .governanceGrid { gap: 20px; }
+  :global(html[lang]) .governanceGrid article {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -337,14 +337,14 @@
     border-radius: 18px;
     background: rgb(255 255 255 / 4%);
   }
-  :global(html[lang]) .trustGrid h3 { color: #f5f9fc; font: 500 23px/28px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
-  :global(html[lang]) .trustGrid p {
+  :global(html[lang]) .governanceGrid h3 { color: #f5f9fc; font: 500 23px/28px "Noto Sans KR", sans-serif; letter-spacing: -.5px; }
+  :global(html[lang]) .governanceGrid p {
     margin: 0;
     color: #afbfce;
     font: 400 16px/26px "Noto Sans KR", sans-serif;
     white-space: pre-line;
   }
-  :global(html[lang]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 67px; letter-spacing: normal; color: #263744; }
+  :global(html[lang]) .rag h2 { font-size: 48px; font-weight: 500; line-height: 1.2; letter-spacing: normal; color: #263744; }
   :global(html[lang]) .rag .sectionHeading > p { max-width: none; font-size: 19px; color: #657481; line-height: 29px; }
   :global(html[lang]) .ragPanel { grid-template-columns: 38.11% minmax(0, 1fr); }
   :global(html[lang]) .ragPanel > div:first-child { padding: 50px 24px 28px 48px; align-self: start; }
@@ -394,3 +394,5 @@
 
 @keyframes ragEnter { from { opacity: 0; transform: translateY(var(--enter-y)); } }
 @keyframes ragArtEnter { from { opacity: 0; transform: scale(1.04); } }
+
+:global(html[lang="ko"]) .hero .signatures { font-family: "Noto Sans KR", sans-serif; font-size: 12px; letter-spacing: .02em; }

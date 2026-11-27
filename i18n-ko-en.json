@@ -13,6 +13,12 @@
         "생성형 AI",
         "AX"
       ],
+      "heroSignatures": [
+        "ERP 연동 CRM",
+        "생성형 AI · RAG",
+        "에이전틱 AI · 가드레일",
+        "데이터 프라이버시 및 거버넌스"
+      ],
       "companyName": "'튜링바이오'",
       "technologies": "핵심 기술",
       "credentials": "주요 이력",
@@ -25,13 +31,19 @@
       "gmpDescription": "의료기기 소프트웨어 품질 체계",
       "researchTitle": "글로벌 연구 협약",
       "siteTitle": "튜링바이오",
-      "siteDescription": "튜링바이오의 CRM과 생성형 AI 사업을 소개합니다."
+      "siteDescription": "튜링바이오의 ERP 연동 CRM, 생성형 AI 및 가드레일 기반 에이전틱 AI 사업을 소개합니다."
     },
     "en": {
       "heroEmphasis": [
         "Customer data",
         "generative AI",
         "AI transformation"
+      ],
+      "heroSignatures": [
+        "ERP-INTEGRATED CRM",
+        "GENERATIVE AI · RAG",
+        "AGENTIC AI · GUARDRAILS",
+        "DATA PRIVACY & GOVERNANCE"
       ],
       "companyName": "'TuringBio'",
       "technologies": "Core technologies",
@@ -45,7 +57,7 @@
       "gmpDescription": "Medical device software QMS",
       "researchTitle": "Global research partnerships",
       "siteTitle": "TuringBio",
-      "siteDescription": "Explore TuringBio’s work in CRM and generative AI."
+      "siteDescription": "Explore TuringBio’s ERP-integrated CRM, generative AI and agentic AI with guardrails."
     }
   },
   "rows": [
@@ -56,7 +68,7 @@
 
     { "section": "Hero", "ko": "고객 데이터와 생성형 AI로,", "en": "Customer data and generative AI," },
     { "section": "Hero", "ko": "기업의 AX를 완성합니다.", "en": "completing your AI transformation." },
-    { "section": "Hero", "ko": "의료 AI에서 검증한 기술력으로 CRM 구축, 생성형 AI 챗봇,\n데이터 분석과 고객 운영까지. 튜링바이오는 기업의 AI 전환을\n전략부터 운영까지 하나의 팀으로 수행합니다.", "en": "With technology proven in medical AI, we deliver CRM, generative AI chatbots,\ndata analytics and customer operations. TuringBio runs your AI transformation\nas one team, from strategy to operations." },
+    { "section": "Hero", "ko": "의료 AI에서 쌓은 기술력으로 ERP와 연동해 CRM을 구축하고,\n기업 정책 기반 가드레일을 갖춘 에이전틱 AI를 설계합니다.\n글로벌 기업 파마리서치 AX PMO로서 데이터 분석과 고객 운영까지 함께합니다.", "en": "Drawing on our experience in medical AI, we build CRM integrated with your ERP and design agentic AI with guardrails tailored to your policies. As AX PMO for PharmaResearch, a global company, we also support data analytics and customer operations." },
 
     { "section": "Credentials", "ko": "파마리서치 계열사", "en": "PharmaResearch affiliate" },
     { "section": "Credentials", "ko": "코스닥 상장 재생의학 바이오 기업", "en": "KOSDAQ-listed bio company" },
@@ -70,13 +82,13 @@
     { "section": "Credentials", "ko": "존스홉킨스대 · 조지아대", "en": "Johns Hopkins · UGA" },
 
     { "section": "CRM", "ko": "흩어진 고객 데이터를,\n하나의 인텔리전스로.", "en": "Scattered customer data,\ninto one intelligence." },
-    { "section": "CRM", "ko": "회원·활동·리워드 데이터를\n하나의 고객 기반으로 통합하고\n분석과 캠페인까지 연결합니다.", "en": "We unify membership, activity and\nreward data into one customer base\nand connect it to analytics and campaigns." },
+    { "section": "CRM", "ko": "기존 ERP와 연동해 CRM을 구축하고,\n통합한 고객 데이터로 행동 패턴을 분석해\n세그먼트별 캠페인으로 연결합니다.", "en": "We build CRM integrated with your existing ERP, analyze behavior from the unified customer data and turn it into segment-level campaigns." },
+    { "section": "CRM", "ko": "ERP 데이터", "en": "ERP data" },
+    { "section": "CRM", "ko": "주문 · 거래 · 상품", "en": "Orders · Transactions · Products" },
     { "section": "CRM", "ko": "회원 정보", "en": "Member profile" },
     { "section": "CRM", "ko": "가입 · 본인확인 · 동의", "en": "Sign-up · Verification · Consent" },
-    { "section": "CRM", "ko": "활동 이력", "en": "Activity history" },
-    { "section": "CRM", "ko": "제품 등록 · 참여", "en": "Product registration · Engagement" },
-    { "section": "CRM", "ko": "리워드 이력", "en": "Reward history" },
-    { "section": "CRM", "ko": "적립 · 교환", "en": "Earn · Redeem" },
+    { "section": "CRM", "ko": "활동·리워드 이력", "en": "Activity & rewards" },
+    { "section": "CRM", "ko": "제품 등록 · 적립 · 교환", "en": "Registration · Earn · Redeem" },
     { "section": "CRM", "ko": "통합 고객 맥락", "en": "Unified customer context" },
     { "section": "CRM", "ko": "고객 프로필", "en": "Customer profile" },
     { "section": "CRM", "ko": "기본 정보 · 동의 상태", "en": "Basics · Consent status" },
@@ -91,9 +103,9 @@
     { "section": "CRM", "ko": "마케팅", "en": "Marketing" },
     { "section": "CRM", "ko": "고객별 접점", "en": "Personalized touchpoints" },
     { "section": "CRM", "ko": "연결", "en": "Connect" },
-    { "section": "CRM", "ko": "회원 정보와 제품 등록, 리워드 이력 등\n접점마다 나뉜 고객 식별 기준에 맞춰 \n고객 정보를 연결합니다.", "en": "We link customer records split across touchpoints, such as membership, product registration and reward history, under one customer ID." },
+    { "section": "CRM", "ko": "주문 데이터와 회원 정보, 제품 등록, 리워드 이력 등\n접점마다 나뉜 고객 정보를\n고객 식별 기준에 맞춰 연결합니다.", "en": "We link customer records split across touchpoints, such as orders, membership, product registration and reward history, using customer identifiers." },
     { "section": "CRM", "ko": "이해", "en": "Understand" },
-    { "section": "CRM", "ko": "주기, 재참여 간격, 리워드 사용 등 \n고객의 행동 패턴을 분석해 \n고객 단계를 나누고 이탈 신호를 보이는 고객을 \n미리 찾아냅니다.", "en": "We analyze behavior patterns such as purchase cycles, return intervals and reward usage to segment lifecycle stages and spot customers showing churn signals early." },
+    { "section": "CRM", "ko": "구매 주기, 재참여 간격, 리워드 사용 등 \n고객의 행동 패턴을 분석해 \n고객 단계를 나누고 이탈 신호를 보이는 고객을 \n미리 찾아냅니다.", "en": "We analyze behavior patterns such as purchase cycles, return intervals and reward usage to segment lifecycle stages and spot customers showing churn signals early." },
     { "section": "CRM", "ko": "활용", "en": "Activate" },
     { "section": "CRM", "ko": "세그먼트별 메시지와 혜택, 발송 시점을 설계하고\n캠페인 성과를 지표로 측정합니다.", "en": "We design messages, offers and send timing for each segment and measure campaign performance with metrics." },
 
@@ -102,22 +114,22 @@
     { "section": "RAG", "ko": "흩어진 문서에서,\n근거 있는 답변으로.", "en": "From scattered docs\nto grounded answers." },
     { "section": "RAG", "ko": "지식 구축 · 벡터화\n의미 기반 검색\nLLM 응답 · 검증", "en": "Knowledge building · Vectorization\nSemantic search\nLLM response · Validation" },
     { "section": "RAG", "ko": "01  지식 구축", "en": "01  Knowledge building" },
-    { "section": "RAG", "ko": "흩어진 문서를 모아 중복과 버전을 정리하고\n의미 단위로 나눠 검색할 수 있는 벡터로 매뉴얼화 합니다.", "en": "We gather scattered documents, resolve duplicates and versions, and turn them into searchable vectors by meaning." },
+    { "section": "RAG", "ko": "흩어진 문서를 모아 중복과 버전을 정리하고\n의미 단위로 나눠 검색할 수 있는 벡터로 변환합니다.", "en": "We gather scattered documents, resolve duplicates and versions, and turn them into searchable vectors by meaning." },
     { "section": "RAG", "ko": "02  의미 기반 검색", "en": "02  Semantic search" },
     { "section": "RAG", "ko": "질문의 의도를 파악해 의미 기반으로 검색하고\n관련 근거를 찾아 연결합니다.", "en": "We understand the intent of each question, search by meaning and link relevant evidence." },
-    { "section": "RAG", "ko": "03  정책 기반 응답", "en": "03  Policy-based answers" },
-    { "section": "RAG", "ko": "답변의 근거 문서를 표시하고, \n금지 표현과 민감 정보는 필터링합니다.\n답변 범위와 상담원 연결까지 기업의 정책에 맞춰 설계합니다.", "en": "Answers show their source documents and filter out prohibited expressions and sensitive data. Answer scope and human handoff follow your policies." },
+    { "section": "RAG", "ko": "03  가드레일 기반 응답", "en": "03  Guardrailed answers" },
+    { "section": "RAG", "ko": "답변의 근거 문서를 표시하고,\n금지 표현과 민감 정보는 필터링합니다.", "en": "Answers show their source documents and filter out prohibited expressions and sensitive data." },
 
-    { "section": "Trust", "ko": "의료 수준의 기준으로,\n고객 데이터를 다룹니다.", "en": "Medical-grade standards\nfor your customer data." },
-    { "section": "Trust", "ko": "의료기기 소프트웨어 품질 체계에서 익힌 문서화와 검증 절차를\n고객 데이터와 AI 서비스 운영에 그대로 적용합니다.", "en": "We apply the documentation and validation practices of\nmedical device software quality systems to customer data\nand AI service operations." },
-    { "section": "Trust", "ko": "최소 수집", "en": "Minimal collection" },
-    { "section": "Trust", "ko": "목적에 필요한 정보만 수집하고,\n목적이 끝나면 파기합니다.", "en": "We collect only what the purpose requires and delete it afterward." },
-    { "section": "Trust", "ko": "권한별 접근", "en": "Role-based access" },
-    { "section": "Trust", "ko": "역할에 따라 조회 범위를 나누고\n조회 이력을 남깁니다.", "en": "Access scope is split by role, and every lookup is logged." },
-    { "section": "Trust", "ko": "가명 처리 분석", "en": "Pseudonymized analytics" },
-    { "section": "Trust", "ko": "분석은 개인을 특정할 수 없는\n데이터로 수행합니다.", "en": "Analysis runs on data that cannot identify individuals." },
-    { "section": "Trust", "ko": "검증된 AI 응답", "en": "Verified AI answers" },
-    { "section": "Trust", "ko": "답변의 근거와 범위를 정하고,\n불확실하면 상담원에게 연결합니다.", "en": "Answers stay within set evidence and scope; unsure cases go to an agent." },
+    { "section": "Governance", "ko": "보안과 가드레일을 갖춘\n에이전틱 AI", "en": "Agentic AI with security\nand guardrails" },
+    { "section": "Governance", "ko": "AI 에이전트가 접근하는 데이터와 업무가 늘어날수록,\n통제는 설계 단계부터 필요합니다.\n기업의 개인정보 보호·내부통제 정책을 가드레일로 구현해\n에이전틱 AI가 허용된 범위 안에서만 작동하도록 합니다.", "en": "As AI agents gain access to more of your data and work, control has to start at the design stage. We turn your data privacy and internal control policies into guardrails, so agentic AI operates only within the scope you allow." },
+    { "section": "Governance", "ko": "개인정보 보호", "en": "Data privacy" },
+    { "section": "Governance", "ko": "프롬프트와 검색 결과에서 개인식별정보(PII)를 탐지해 마스킹하고, 분석용 데이터는 가명 처리합니다.", "en": "PII is detected and masked in prompts and retrieved content, and analytics data is pseudonymized." },
+    { "section": "Governance", "ko": "최소 권한", "en": "Least privilege" },
+    { "section": "Governance", "ko": "역할 기반 접근 제어(RBAC)와 허용 목록으로, 에이전트가 조회할 데이터와 호출할 API를 업무에 필요한 범위로 제한합니다.", "en": "Role-based access control (RBAC) and tool and API allowlists limit what each agent can read and call to what the task requires." },
+    { "section": "Governance", "ko": "승인 기반 실행", "en": "Human-in-the-loop" },
+    { "section": "Governance", "ko": "외부 메시지 발송이나 주요 데이터 변경은 실행 전에 승인을 거칩니다. 권한 밖 요청은 차단하고, 근거가 부족한 요청은 담당자 검토로 넘깁니다.", "en": "Outbound messages and major data changes require approval before they run. Out-of-scope requests are blocked, and low-evidence requests go to human review." },
+    { "section": "Governance", "ko": "감사 추적", "en": "Audit trail" },
+    { "section": "Governance", "ko": "요청부터 데이터 조회, 도구 호출, 승인, 실행 결과까지 하나의 추적 ID로 기록해, 누가 승인하고 무엇이 실행됐는지 확인할 수 있게 합니다.", "en": "Every request, data lookup, tool call, approval and outcome is recorded under one trace ID, so you can see who approved what and what ran." },
 
     { "section": "Company", "ko": "멀티모달 AI로,\n고객과 데이터를 읽습니다.", "en": "With multimodal AI,\nwe read customers and data." },
     { "section": "Company", "ko": "'튜링바이오'는 인공지능 연구의 출발점이 된 앨런 튜링에서 따온 이름입니다.\nAI 기술로 개인 맞춤형 정밀 치료를 통해 더 건강한 사회에 기여하겠다는 사명으로 설립되었습니다.\n멀티모달 의료 데이터로 헬스케어 서비스를 개발하며 쌓은 경험과 기술을,\n이제 기업의 고객 데이터와 맞춤 AI 서비스로 넓혀 가고 있습니다.", "en": "'TuringBio' is named after Alan Turing, a founder of AI research. We were founded to build a healthier society through AI-powered, personalized precision care. The experience and technology we gained building healthcare services on multimodal medical data now extend to enterprise customer data and tailored AI services." },
@@ -158,7 +170,7 @@
     { "section": "Method", "ko": "설계", "en": "Design" },
     { "section": "Method", "ko": "데이터 구조와 고객 여정,\nAI 응답 정책을 설계하고\n성과 지표를 정의합니다.", "en": "We design data structures, customer journeys and AI policies, and define KPIs." },
     { "section": "Method", "ko": "구축", "en": "Build" },
-    { "section": "Method", "ko": "CRM과 데이터 파이프라인,\nRAG 챗봇을 구축하고\nPMO로 일정과 품질을 관리합니다.", "en": "We build CRM, data pipelines and RAG chatbots, managing schedule and quality as PMO." },
+    { "section": "Method", "ko": "ERP 연동 CRM과 데이터 파이프라인,\nRAG 챗봇을 구축하고\nPMO로 일정과 품질을 관리합니다.", "en": "We build ERP-integrated CRM, data pipelines and RAG chatbots, managing schedule and quality as PMO." },
     { "section": "Method", "ko": "운영·개선", "en": "Operate & improve" },
     { "section": "Method", "ko": "오픈 이후 서비스 운영과\n고객 지원을 맡고, 지표를 보며\n캠페인과 응대를 개선합니다.", "en": "After launch we run the service and customer support, improving campaigns and responses by metrics." },
     { "section": "Method", "ko": "AX 컨설팅·PMO", "en": "AX consulting · PMO" },
@@ -167,7 +179,7 @@
     { "section": "Method", "ko": "서비스 운영·CS", "en": "Service operations · CS" },
 
     { "section": "Project", "ko": "글로벌 K-뷰티 브랜드의\nCRM·AX를 이끕니다.", "en": "Leading CRM and AX for a global K-beauty brand." },
-    { "section": "Project", "ko": "K-뷰티 대표 브랜드의 고객 데이터 통합과 고객 경험 전환 프로젝트에서\nPMO를 맡아 운영의 전 과정을 이끕니다.", "en": "We lead project management and oversee operations for a leading K-beauty brand’s customer data integration and customer experience transformation." },
+    { "section": "Project", "ko": "파마리서치 AX 프로젝트의 PMO를 맡아\n고객 데이터 통합과 고객 경험 전환의 전 과정을 이끕니다.", "en": "As PMO for PharmaResearch’s AX project, we lead the full course of customer data integration and customer experience transformation." },
 
     { "section": "Capabilities", "ko": "연결된 데이터에서,\nAI가 여는 다음 성장까지.", "en": "From connected data\nto the next growth AI unlocks." },
     { "section": "Capabilities", "ko": "데이터와 인사이트", "en": "Data & insights" },
