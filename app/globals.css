@@ -40,6 +40,7 @@ h3 { line-height: 1.35; }
 section[id] { scroll-margin-top: var(--header-height); }
 .container { width: min(100% - clamp(40px, 8.9vw, 128px), 1312px); margin-inline: auto; }
 .section { padding-block: clamp(64px, 8vw, 120px); }
+@media (min-width: 1024px) { :root { --header-height: 64px; } }
 @media (max-width: 767px) { :root { --header-height: 60px; } }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 

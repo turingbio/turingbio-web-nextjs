@@ -15,7 +15,7 @@
 @media (min-width: 1024px) {
   .header { background-color: rgb(255 255 255 / 40%); backdrop-filter: blur(9px); }
   .headerInner { position: relative; justify-content: flex-start; }
-  .headerInner img { width: 152px; height: 29.64px; margin-bottom: 2px; }
+  .headerInner img { width: 133.15px; height: 26px; margin-bottom: 2px; }
   .headerInner nav {
     position: absolute;
     right: 12.8%;
