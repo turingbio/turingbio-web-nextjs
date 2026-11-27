@@ -148,11 +148,21 @@
     padding: 0;
     background:
       radial-gradient(ellipse 146px 124px at 1200px 418px, rgb(243 192 165 / 14%) 0 24%, rgb(243 192 165 / 7%) 62%, rgb(243 192 165 / 0) 100%),
-      radial-gradient(ellipse 281px 273px at 124px 56px, rgb(49 198 205 / 5%) 0, rgb(49 198 205 / 2.5%) 45%, rgb(49 198 205 / 0) 100%),
       radial-gradient(ellipse 313px 270px at 1099px 74px, rgb(211 163 204 / 20%) 0 65%, rgb(211 163 204 / 10%) 82%, rgb(211 163 204 / 0) 100%),
-      radial-gradient(ellipse 491px 414px at 220px 80px, rgb(49 198 205 / 10%) 0 78%, rgb(49 198 205 / 5%) 89%, rgb(49 198 205 / 0) 100%),
       #fdfcfc;
   }
+  /* Figma: Ambient 31C6CD (layer blur 55) + Jade field (layer blur 150) */
+  :global(html[lang]) .hero::before,
+  :global(html[lang]) .hero::after {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    border-radius: 50%;
+    background: #31c6cd;
+    pointer-events: none;
+  }
+  :global(html[lang]) .hero::before { left: -216px; top: -171px; width: 795px; height: 616px; opacity: .1; filter: blur(27.5px); }
+  :global(html[lang]) .hero::after { left: -7px; top: -67px; width: 262px; height: 246px; opacity: .15; filter: blur(75px); }
   :global(html[lang]) .heroLines { inset: var(--header-height) -1.42% 0; background-size: 100% 100%; opacity: 1; }
   :global(html[lang]) .heroSignals, .diagramSignals {
     position: absolute;
