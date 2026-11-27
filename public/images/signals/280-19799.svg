@@ -1,6 +1,6 @@
 <svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Output signal 4" opacity="0.703125" filter="url(#filter0_d_0_2024)">
-<circle cx="8" cy="8" r="2" fill="#1AA6B3"/>
+<circle cx="8" cy="8" r="2" fill="#A779B8"/>
 </g>
 <defs>
 <filter id="filter0_d_0_2024" x="0" y="0" width="16" height="16" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -8,7 +8,7 @@
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset/>
 <feGaussianBlur stdDeviation="3"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.101961 0 0 0 0 0.65098 0 0 0 0 0.701961 0 0 0 0.45 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.654902 0 0 0 0 0.47451 0 0 0 0 0.721569 0 0 0 0.45 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_2024"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_2024" result="shape"/>
 </filter>

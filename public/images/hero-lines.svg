@@ -16,7 +16,7 @@
 <path id="Generative AI line 7" d="M1480.5 800.56C1449.04 788.34 1347.11 748.96 1291.74 727.23C1236.37 705.5 1212.04 682.33 1148.27 670.21C1084.49 658.08 977.05 660.53 909.08 654.5C841.12 648.46 768.6 637.42 740.5 634" stroke-linecap="round" stroke="#C3A0CF" stroke-opacity="0.20829"/>
 <path id="Output line 1" d="M740.5 634C722.3 637.33 681.05 647.67 631.3 654C581.55 660.33 484.49 666.33 442.02 672C399.55 677.67 387.42 685.33 376.5 688" stroke-linecap="round" stroke="#4CABA1" stroke-opacity="0.34"/>
 <path id="Output line 2" d="M740.5 634C735 637.33 722.53 647.67 707.5 654C692.47 660.33 663.13 666.33 650.3 672C637.47 677.67 633.8 685.33 630.5 688" stroke-linecap="round" stroke="#4CABA1" stroke-opacity="0.34"/>
-<path id="Output line 3" d="M740.5 634C746.95 637.33 761.57 647.67 779.2 654C796.83 660.33 831.23 666.33 846.28 672C861.33 677.67 865.63 685.33 869.5 688" stroke-linecap="round" stroke="#4CABA1" stroke-opacity="0.34"/>
-<path id="Output line 4" d="M740.5 634C759.4 637.33 802.24 647.67 853.9 654C905.56 660.33 1006.36 666.33 1050.46 672C1094.56 677.67 1107.16 685.33 1118.5 688" stroke-linecap="round" stroke="#4CABA1" stroke-opacity="0.34"/>
+<path id="Output line 3" d="M740.5 634C746.95 637.33 761.57 647.67 779.2 654C796.83 660.33 831.23 666.33 846.28 672C861.33 677.67 865.63 685.33 869.5 688" stroke-linecap="round" stroke="#C3A0CF" stroke-opacity="0.34"/>
+<path id="Output line 4" d="M740.5 634C759.4 637.33 802.24 647.67 853.9 654C905.56 660.33 1006.36 666.33 1050.46 672C1094.56 677.67 1107.16 685.33 1118.5 688" stroke-linecap="round" stroke="#C3A0CF" stroke-opacity="0.34"/>
 </g>
 </svg>
