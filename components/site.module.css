@@ -14,9 +14,6 @@
 .toggle { display: none; }
 @media (min-width: 1024px) {
   .header { background-color: rgb(255 255 255 / 40%); backdrop-filter: blur(9px); }
-  .header[data-scrolled="false"] {
-    background-image: linear-gradient(100deg, #eaf8f9, #e5f7f7 8%, #f4fbfb 43%, #fefefe 51%, #f8f3f8 69%, #f8f2f7 84%, #fefdfd);
-  }
   .headerInner { position: relative; justify-content: flex-start; }
   .headerInner img { width: 152px; height: 29.64px; margin-bottom: 2px; }
   .headerInner nav {
@@ -143,19 +140,20 @@
 
 @media (min-width: 1024px) {
   :global(html[lang]) .hero {
-    height: 824px;
+    height: calc(824px + var(--header-height));
+    margin-top: calc(-1 * var(--header-height));
     min-height: 0;
     display: block;
     align-content: normal;
     padding: 0;
     background:
-      radial-gradient(ellipse 146px 124px at 1200px 342px, rgb(243 192 165 / 14%) 0 24%, rgb(243 192 165 / 7%) 62%, rgb(243 192 165 / 0) 100%),
-      radial-gradient(ellipse 281px 273px at 124px -20px, rgb(49 198 205 / 5%) 0, rgb(49 198 205 / 2.5%) 45%, rgb(49 198 205 / 0) 100%),
-      radial-gradient(ellipse 313px 270px at 1099px -2px, rgb(211 163 204 / 20%) 0 65%, rgb(211 163 204 / 10%) 82%, rgb(211 163 204 / 0) 100%),
-      radial-gradient(ellipse 491px 414px at 220px 4px, rgb(49 198 205 / 10%) 0 78%, rgb(49 198 205 / 5%) 89%, rgb(49 198 205 / 0) 100%),
+      radial-gradient(ellipse 146px 124px at 1200px 418px, rgb(243 192 165 / 14%) 0 24%, rgb(243 192 165 / 7%) 62%, rgb(243 192 165 / 0) 100%),
+      radial-gradient(ellipse 281px 273px at 124px 56px, rgb(49 198 205 / 5%) 0, rgb(49 198 205 / 2.5%) 45%, rgb(49 198 205 / 0) 100%),
+      radial-gradient(ellipse 313px 270px at 1099px 74px, rgb(211 163 204 / 20%) 0 65%, rgb(211 163 204 / 10%) 82%, rgb(211 163 204 / 0) 100%),
+      radial-gradient(ellipse 491px 414px at 220px 80px, rgb(49 198 205 / 10%) 0 78%, rgb(49 198 205 / 5%) 89%, rgb(49 198 205 / 0) 100%),
       #fdfcfc;
   }
-  :global(html[lang]) .heroLines { inset: 0 -1.42%; background-size: 100% 100%; opacity: 1; }
+  :global(html[lang]) .heroLines { inset: var(--header-height) -1.42% 0; background-size: 100% 100%; opacity: 1; }
   :global(html[lang]) .heroSignals, .diagramSignals {
     position: absolute;
     inset: 0;
@@ -163,8 +161,8 @@
     height: 100%;
     pointer-events: none;
   }
-  :global(html[lang]) .heroSignals { display: block; z-index: -1; }
-  :global(html[lang]) .heroCopy { max-width: none; padding-top: 205px; }
+  :global(html[lang]) .heroSignals { display: block; z-index: -1; inset: var(--header-height) 0 0; height: calc(100% - var(--header-height)); }
+  :global(html[lang]) .heroCopy { max-width: none; padding-top: calc(205px + var(--header-height)); }
   :global(html[lang]) .heroCopy > .heroEyebrow {
     display: block;
     margin: 0 auto 38px;
@@ -192,7 +190,7 @@
     white-space: pre-line;
   }
   :global(html[lang]) .signatures {
-    inset: 700px 0 auto;
+    inset: calc(700px + var(--header-height)) 0 auto;
     margin: 0;
     gap: 16px 70px;
     font: 500 11px/13px "Figma Inter", sans-serif;
