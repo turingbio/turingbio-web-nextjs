@@ -5,6 +5,7 @@ import CompanySections, { SiteFooter } from './company-sections';
 import SignalField from './signal-field';
 import Entrance from './entrance';
 import Reveal from './reveal';
+import SignalAspect from './signal-aspect';
 import styles from './site.module.css';
 
 const credentialLabels = ['GROUP', 'VENTURE', 'AI PATENT', 'CERTIFICATION', 'GLOBAL R&D'];
@@ -110,6 +111,7 @@ export default function Site({ locale }: { locale: Locale }) {
       </main>
       <SiteFooter locale={locale} />
       <Reveal />
+      <SignalAspect />
     </>
   );
 }

@@ -6,7 +6,7 @@ export default function SignalField({ hero = false, className }: { hero?: boolea
   const activeFraction = hero ? 0.1 : 1;
 
   return (
-    <svg aria-hidden="true" className={className} viewBox={hero ? '0 0 1440 824' : '0 0 1312 535'} preserveAspectRatio="none">
+    <svg aria-hidden="true" data-signal-field="" className={className} viewBox={hero ? '0 0 1440 824' : '0 0 1312 535'} preserveAspectRatio="none">
       {!hero && (
         <g fill="none" stroke="#4c91a9">
           <path d="M297 148H411M297 388H411M297 268H503M863 268H950M950 169H974M950 284H974M950 399H974" />

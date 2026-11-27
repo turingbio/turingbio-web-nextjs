@@ -172,6 +172,11 @@
     pointer-events: none;
   }
   :global(html[lang]) .heroSignals { display: block; z-index: -1; inset: var(--header-height) 0 0; height: calc(100% - var(--header-height)); }
+  :global(html[lang]) :is(.heroSignals, .diagramSignals) image {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scaleX(var(--signal-sx, 1));
+  }
   :global(html[lang]) .heroCopy { max-width: none; padding-top: calc(205px + var(--header-height)); }
   :global(html[lang]) .heroCopy > .heroEyebrow {
     display: block;
